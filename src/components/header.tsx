@@ -5,6 +5,9 @@ function Header() {
         <>
           <header>
              <nav>
+               {/* categories component for mobile nav* */}
+               
+               {/* desktop links */}
                 <ul>
                    <li><Link to="/">Home</Link></li>
                    <li><Link to="/headphones">headphones</Link></li>
@@ -12,6 +15,7 @@ function Header() {
                    <li><Link to="/earphones">earphones</Link></li>
                    <li><Link to="/checkout">checkout</Link></li>
                 </ul>
+                {/* cart display button* */}
              </nav>
           </header>
         </>
