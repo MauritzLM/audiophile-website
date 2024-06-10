@@ -9,7 +9,7 @@ export interface item {
         desktop: string
     },
     category: string,
-    categoryImage: {
+    categoryimage: {
         mobile: string,
         tablet: string,
         desktop: string
