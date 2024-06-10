@@ -12,8 +12,8 @@ function QuantityInput({ product, updateCart }: quantityInputProps) {
   return (
     <>
       <div>
-        <input type="number" placeholder="1" value={inputValue}></input>
-        <button onChange={updateCart(product, inputValue)}></button>
+        <input type="number" placeholder="1" value={inputValue} onChange={(e) => setInputValue(Number(e.target.value))}></input>
+        <button onClick={() => updateCart(product, inputValue)}></button>
       </div>
     </>
   )
