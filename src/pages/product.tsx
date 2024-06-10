@@ -1,6 +1,10 @@
 import { useParams } from "react-router-dom"
 import { item, fetchedItems } from "../types";
 import ProductCardFull from "../components/products/productCardFull";
+import ProductFeatures from "../components/products/productFeatures";
+import OtherProducts from "../components/products/otherProducts";
+import Categories from "../components/products/categories";
+import About from "../components/about";
 
 interface productProps {
     fetchedProducts: fetchedItems,
@@ -23,17 +27,18 @@ function Product({ fetchedProducts, updateCart }: productProps) {
             {/* product card full component - update cart && product props */}
             <ProductCardFull product={product!} updateCart={updateCart} />
 
-            {/* features */}
+            {/* product features */}
+            <ProductFeatures product={product!} />
 
-            {/* in the box */}
-
-            {/* images */}
 
             {/* other products component */}
+            <OtherProducts product={product!} />
 
             {/* categories component */}
+            <Categories />
 
             {/* about component */}
+            <About />
         </>
     )
 }
