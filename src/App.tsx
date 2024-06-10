@@ -9,82 +9,31 @@ import Product from './pages/product'
 import Checkout from './pages/checkout'
 import ErrorPage from './pages/error-page'
 import { useState, useEffect } from 'react'
-
-// fetched items types
-interface fetchedItems {
-  earphones: [],
-  headphones: [],
-  speakers: []
-}
-
-// fetched product types
-interface item {
-  id: number,
-  slug: string,
-  name: string,
-  image: {
-    mobile: string,
-    tablet: string,
-    desktop: string
-  },
-  category: string,
-  categoryImage: {
-    mobile: string,
-    tablet: string,
-    desktop: string
-  },
-  new: boolean,
-  price: number,
-  description: string,
-  features: string,
-  includes: {
-    quantity: number,
-    item: string
-  }[],
-  gallery: {
-    first: {
-      mobile: string,
-      tablet: string,
-      desktop: string
-    },
-    second: {
-      mobile: string,
-      tablet: string,
-      desktop: string
-    },
-    third: {
-      mobile: string,
-      tablet: string,
-      desktop: string
-    }
-  },
-  others: {
-    slug: string,
-    name: string,
-    image: {
-      mobile: string,
-      tablet: string,
-      desktop: string
-    }
-  }[],
-  featured: boolean
-}
+import Cart from './components/payment/cart'
+import { item, fetchedItems } from './types'
 
 
 function App() {
   // fetched products state
-  const [products, setProducts] = useState<fetchedItems>({ earphones: [], headphones: [], speakers: [] });
+  const [fetchedProducts, setFetchedProducts] = useState<fetchedItems>({ "earphones": [], "headphones": [], "speakers": [] });
   // featured products
   const [featured, setFeatured] = useState<item[]>([])
   // cart state
   const [cart, setCart] = useState<item[]>([]);
 
+  // update fetched products state function
   const updateProducts = function (category: string, items: item[]) {
-    setProducts({ ...products, [category]: [...items] })
+    setFetchedProducts({ ...fetchedProducts, [category]: [...items] })
   }
 
-  const updateCart = function (product: item) {
-    setCart([...cart, product])
+  // update cart state function
+  const updateCart = function (product: item, quantity: number) {
+    const arr = [];
+    for (let i = 0; i < quantity; i++) {
+      arr.push(product)
+    }
+
+    setCart([...cart, ...arr])
   }
 
   // fetch featured products
@@ -113,13 +62,16 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path='/' element={<Home featured={featured}/>} />
-        <Route path='/:category' element={<Category products={products} updateProducts={updateProducts} />} />
-        <Route path='/:category/:productname' element={<Product products={products} updateCart={updateCart} />} />
-        <Route path='/checkout' element={<Checkout cart={cart} />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
+      <main id='main'>
+        <Cart cart={cart} updateCart={updateCart} />
+        <Routes>
+          <Route path='/' element={<Home featured={featured} />} />
+          <Route path='/:category' element={<Category fetchedProducts={fetchedProducts} updateProducts={updateProducts} />} />
+          <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} updateCart={updateCart} />} />
+          <Route path='/checkout' element={<Checkout cart={cart} />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </main>
       <Footer />
     </>
   )
