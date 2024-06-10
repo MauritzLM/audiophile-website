@@ -1,73 +1,29 @@
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import ProductCardShort from "../components/productCardShort"
+import ProductCardShort from "../components/products/productCardShort"
+import { item, fetchedItems } from "../types";
+import Categories from "../components/products/categories";
+import About from "../components/about";
 
-interface item {
-    id: number,
-    slug: string,
-    name: string,
-    image: {
-        mobile: string,
-        tablet: string,
-        desktop: string
-    },
-    category: string,
-    categoryImage: {
-        mobile: string,
-        tablet: string,
-        desktop: string
-    },
-    new: boolean,
-    price: number,
-    description: string,
-    features: string,
-    includes: {
-        quantity: number,
-        item: string
-    }[],
-    gallery: {
-        first: {
-            mobile: string,
-            tablet: string,
-            desktop: string
-        },
-        second: {
-            mobile: string,
-            tablet: string,
-            desktop: string
-        },
-        third: {
-            mobile: string,
-            tablet: string,
-            desktop: string
-        }
-    },
-    others: {
-        slug: string,
-        name: string,
-        image: {
-            mobile: string,
-            tablet: string,
-            desktop: string
-        }
-    }[],
-    featured: boolean
+interface categoryProps {
+    fetchedProducts: fetchedItems,
+    updateProducts: (category: string, fetchedProducts: item[]) => void
 }
 
-function Category({ products, updateProducts }) {
+function Category({ fetchedProducts, updateProducts }: categoryProps) {
     const { category } = useParams();
-    // console.log(typeof category)
 
-    // fetch all products of category and update state*
+    // fetch all products of category and update state
     async function fetchCategory() {
         try {
             const response = await fetch(`http://localhost:3000/category/${category}`)
 
-            const fetchedProducts: item[] = await response.json()
+            const fetchedItems = await response.json()
 
-            updateProducts(category, fetchedProducts)
+            // update state
+            updateProducts(category!, fetchedItems)
 
-            console.log(fetchedProducts);
+            console.log(fetchedItems);
 
         } catch (error) {
             console.log(error)
@@ -75,21 +31,31 @@ function Category({ products, updateProducts }) {
     }
 
     useEffect(() => {
-        if(!products.category?.length) {
+        // fetch products if they are not in state
+         // non-null assertion operator (!)
+        if(fetchedProducts[category!].length === 0) {
             fetchCategory()
         }
         
-    }, [category])
+     }, [category])
 
     return (
         <>
             <h1>{category} page</h1>
 
+           {/* list of products */}
             <ul>
-                {products[category].map(item => {
-                    return <ProductCardShort item={item}/>
+                {fetchedProducts[category!].map((item: item, index: number) => {
+                    return <ProductCardShort key={index} index={index} item={item} />
                 })}
             </ul>
+
+            {/* categories component */}
+            <Categories />
+
+
+            {/* about component */}
+            <About />
         </>
     )
 }
