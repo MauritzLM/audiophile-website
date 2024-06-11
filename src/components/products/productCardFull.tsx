@@ -20,7 +20,7 @@ function ProductCardFull({ product, updateCart }: productCardFullProps) {
             </picture>
 
             {/* new? */}
-            {product.new ? <p>new product</p> : ''}
+            {product.new ? <p data-testid="new">new product</p> : ''}
 
             {/* name */}
             <h2>{product.name}</h2>
@@ -29,7 +29,7 @@ function ProductCardFull({ product, updateCart }: productCardFullProps) {
             <p>{product.description}</p>
 
             {/* price */}
-            <p>$ {product.price}</p>
+            <p data-testid="price">$ {product.price}</p>
 
             {/* add to cart button && quantity input component */}
             <QuantityInput product={product} updateCart={updateCart}/>

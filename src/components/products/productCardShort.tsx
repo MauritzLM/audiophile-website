@@ -21,7 +21,7 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 </picture>
                 
                 {/* new? */}
-                {item.new ? <p>new product</p> : ''}
+                {item.new ? <p data-testid="new">new product</p> : ''}
 
                 {/* name and description */}
                 <h2>{item.name}</h2>
