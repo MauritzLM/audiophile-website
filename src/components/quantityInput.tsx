@@ -8,12 +8,13 @@ interface quantityInputProps {
 
 function QuantityInput({ product, updateCart }: quantityInputProps) {
   const [inputValue, setInputValue] = useState(1)
-  // controlled input with + and - buttons*
+  
   return (
     <>
       <div>
-        <input type="number" placeholder="1" value={inputValue} onChange={(e) => setInputValue(Number(e.target.value))}></input>
-        <button onClick={() => updateCart(product, inputValue)}></button>
+        <label htmlFor="quantity">quantity</label>
+        <input name="quantity" id="quantity" type="number" value={inputValue} onChange={(e) => setInputValue(Number(e.target.value))} min="1" max="5"></input>
+        <button onClick={() => updateCart(product, inputValue)}>add to cart</button>
       </div>
     </>
   )
