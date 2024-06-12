@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 import QuantityInput from "../quantityInput";
 
 // mocks
-import { test_item } from "../../tests/mocks";
+import { test_item, test_item_2 } from "../../tests/mocks";
 const updateCart = vi.fn()
 
 describe("quantity input", () => {
@@ -27,17 +27,53 @@ describe("quantity input", () => {
         const user = userEvent.setup();
 
         // add to cart button and num input
-        const addButton = screen.getByText("add to cart");
+        const cartButton = screen.getByText("add to cart");
         const numInput = screen.getByRole("spinbutton");
 
         // user actions
         await user.type(numInput, 'backspace');
         await user.type(numInput, '2');
-        await user.click(addButton);
+        await user.click(cartButton);
 
         // num input value
         expect(numInput).toHaveValue(2);
         // update cart function arguments
         expect(updateCart).toHaveBeenCalledWith(test_item, 2);
+    });
+
+    it("test add button", async () => {
+        render(<QuantityInput product={test_item_2} updateCart={updateCart} />);
+
+        // user-event setup
+        const user = userEvent.setup();
+
+        const addButton = screen.getByText("+");
+        const numInput = screen.getByRole("spinbutton");
+
+        // user action
+        await user.click(addButton);
+
+        // num input value
+        expect(numInput).toHaveValue(2);
+
+    });
+
+    it("test remove button", async () => {
+        render(<QuantityInput product={test_item_2} updateCart={updateCart} />);
+
+        // user-event setup
+        const user = userEvent.setup();
+
+        const removeButton = screen.getByText("-");
+        const numInput = screen.getByRole("spinbutton");
+
+        // user actions
+        await user.type(numInput, 'backspace');
+        await user.type(numInput, '5');
+        await user.click(removeButton);
+
+        // num input value
+        expect(numInput).toHaveValue(4);
+
     });
 });
