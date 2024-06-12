@@ -15,7 +15,7 @@ import { item, fetchedItems } from './types'
 
 function App() {
   // fetched products state
-  const [fetchedProducts, setFetchedProducts] = useState<fetchedItems>({ "earphones": [], "headphones": [], "speakers": [] });
+  const [fetchedProducts, setFetchedProducts] = useState<fetchedItems>({ "earphones": [], "headphones": [], "speakers": [] })
   // featured products
   const [featured, setFeatured] = useState<item[]>([])
   // cart state
@@ -26,15 +26,43 @@ function App() {
     setFetchedProducts({ ...fetchedProducts, [category]: [...items] })
   }
 
-  // update cart state function
+  // update product quantity in cart
   const updateCart = function (product: item, quantity: number) {
+
+    // remove all instances of product
+    setCart(cart.filter(a => a.name !== product.name))
+
+    if (quantity === 0) {
+      return
+    }
+    // else add item * quantity to cart
     const arr = [];
     for (let i = 0; i < quantity; i++) {
       arr.push(product)
     }
 
+    // update session info*
+
     setCart([...cart, ...arr])
   }
+
+  // add product quantity to cart
+  const addToCart = function (product: item, quantity: number) {
+    const arr = [];
+    for (let i = 0; i < quantity; i++) {
+      arr.push(product)
+    }
+
+    // update session info*
+
+    setCart([...cart, ...arr])
+  }
+
+  // remove all items from cart
+  const clearCart = function () {
+    setCart([])
+  }
+
 
   // fetch featured products
   async function fetchFeatured() {
@@ -63,11 +91,11 @@ function App() {
     <>
       <Header />
       <main id='main'>
-        <Cart cart={cart} updateCart={updateCart} />
+        <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />
         <Routes>
           <Route path='/' element={<Home featured={featured} />} />
           <Route path='/:category' element={<Category fetchedProducts={fetchedProducts} updateProducts={updateProducts} />} />
-          <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} updateCart={updateCart} />} />
+          <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} addToCart={addToCart} />} />
           <Route path='/checkout' element={<Checkout cart={cart} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
