@@ -30,20 +30,17 @@ function App() {
   const updateCart = function (product: item, quantity: number) {
 
     // remove all instances of product
-    setCart(cart.filter(a => a.name !== product.name))
+    const newCart = cart.filter(cartItem => product.name !== cartItem.name)
 
-    if (quantity === 0) {
-      return
-    }
     // else add item * quantity to cart
-    const arr = [];
+    const newProduct = [];
     for (let i = 0; i < quantity; i++) {
-      arr.push(product)
+      newProduct.push(product)
     }
 
     // update session info*
 
-    setCart([...cart, ...arr])
+    setCart([...newCart, ...newProduct])
   }
 
   // add product quantity to cart
