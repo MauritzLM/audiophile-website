@@ -6,17 +6,27 @@ import '@testing-library/jest-dom';
 import ProductCardFull from "../productCardFull";
 
 // mocks
-import { test_item } from "../../../tests/mocks";
+import { test_item, test_item_2 } from "../../../tests/mocks";
 
 describe("product card full", () => {
     it("renders correctly", () => {
-        render(<ProductCardFull product={test_item} updateCart={vi.fn()}/>)
-        
+        render(<ProductCardFull product={test_item} updateCart={vi.fn()} />);
+
         // renders correct name
         expect(screen.getByRole("heading").textContent).toMatch("ZX7 Speaker");
         // does not render if not new
         expect(screen.queryByTestId("new")).not.toBeInTheDocument();
         // renders correct price
         expect(screen.getByTestId("price").textContent).toMatch("$ 3500");
+    });
+
+    it("renders new product correctly", () => {
+        render(<ProductCardFull product={test_item_2} updateCart={vi.fn()} />);
+
+        // correct item name
+        expect(screen.getByRole("heading").textContent).toMatch("XX99 Mark II Headphones");
+        // renders if  new
+        expect(screen.queryByTestId("new")).toBeInTheDocument();
+
     });
 });
