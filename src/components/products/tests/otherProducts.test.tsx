@@ -13,6 +13,10 @@ describe("other products you may like", () => {
     it("renders all products", () => {
         render(<BrowserRouter><OtherProducts product={test_item}/></BrowserRouter>)
 
+        const names = screen.getAllByTestId("item-name");
+
         expect(screen.getAllByTestId("other-product")).toHaveLength(3);
+        expect(names[1].textContent).toMatch("XX99 Mark I");
+        
     });
 });
