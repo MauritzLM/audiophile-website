@@ -46,7 +46,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
            {/* list of products */}
             <ul>
                 {fetchedProducts[category!].map((item: item, index: number) => {
-                    return <ProductCardShort key={index} index={index} item={item} />
+                    return <ProductCardShort key={item.name} index={index} item={item} />
                 })}
             </ul>
 
