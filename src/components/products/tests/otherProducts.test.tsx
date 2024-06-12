@@ -15,7 +15,9 @@ describe("other products you may like", () => {
 
         const names = screen.getAllByTestId("item-name");
 
+        // renders all other products
         expect(screen.getAllByTestId("other-product")).toHaveLength(3);
+        // correct item name
         expect(names[1].textContent).toMatch("XX99 Mark I");
         
     });

@@ -12,8 +12,11 @@ describe("product features", () => {
         render(<ProductFeatures product={test_item}/>);
 
         expect(screen.getByRole("heading").textContent).toMatch(/Features/);
+        // renders description
         expect(screen.getByTestId("description")).toBeInTheDocument();
+        // renders all box contents
         expect(screen.getAllByRole("listitem")).toHaveLength(5);
+        // renders all picture elements
         expect(screen.getAllByTestId("picture")).toHaveLength(3);
     });
 });

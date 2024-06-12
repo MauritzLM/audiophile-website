@@ -10,6 +10,7 @@ describe("category links", () => {
     it("render correctly", () => {
         render(<BrowserRouter><Categories /></BrowserRouter>);
 
+        // renders all categories
         expect(screen.getAllByTestId("category-link")).toHaveLength(3);
     });
 });

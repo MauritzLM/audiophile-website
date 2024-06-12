@@ -12,8 +12,11 @@ describe("product card full", () => {
     it("renders correctly", () => {
         render(<ProductCardFull product={test_item} updateCart={vi.fn()}/>)
         
+        // renders correct name
         expect(screen.getByRole("heading").textContent).toMatch("ZX7 Speaker");
+        // does not render if not new
         expect(screen.queryByTestId("new")).not.toBeInTheDocument();
+        // renders correct price
         expect(screen.getByTestId("price").textContent).toMatch("$ 3500");
     });
 });
