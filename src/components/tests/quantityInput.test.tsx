@@ -8,11 +8,11 @@ import QuantityInput from "../quantityInput";
 
 // mocks
 import { test_item, test_item_2 } from "../../tests/mocks";
-const updateCart = vi.fn()
+const addToCart = vi.fn()
 
 describe("quantity input", () => {
     it("renders correctly", () => {
-        render(<QuantityInput product={test_item} updateCart={updateCart} />);
+        render(<QuantityInput product={test_item} addToCart={addToCart} />);
 
         // input value on rendering
         expect(screen.getByRole("spinbutton")).toHaveValue(1);
@@ -21,7 +21,7 @@ describe("quantity input", () => {
     });
 
     it("test user actions", async () => {
-        render(<QuantityInput product={test_item} updateCart={updateCart} />);
+        render(<QuantityInput product={test_item} addToCart={addToCart} />);
 
         // user-event setup
         const user = userEvent.setup();
@@ -38,11 +38,11 @@ describe("quantity input", () => {
         // num input value
         expect(numInput).toHaveValue(2);
         // update cart function arguments
-        expect(updateCart).toHaveBeenCalledWith(test_item, 2);
+        expect(addToCart).toHaveBeenCalledWith(test_item, 2);
     });
 
     it("test add button", async () => {
-        render(<QuantityInput product={test_item_2} updateCart={updateCart} />);
+        render(<QuantityInput product={test_item_2} addToCart={addToCart} />);
 
         // user-event setup
         const user = userEvent.setup();
@@ -59,7 +59,7 @@ describe("quantity input", () => {
     });
 
     it("test remove button", async () => {
-        render(<QuantityInput product={test_item_2} updateCart={updateCart} />);
+        render(<QuantityInput product={test_item_2} addToCart={addToCart} />);
 
         // user-event setup
         const user = userEvent.setup();

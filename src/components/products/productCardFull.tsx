@@ -4,10 +4,10 @@ import QuantityInput from "../quantityInput"
 
 interface productCardFullProps {
     product: item,
-    updateCart: (product: item, quantity: number) => void
+    addToCart: (product: item, quantity: number) => void
 }
 
-function ProductCardFull({ product, updateCart }: productCardFullProps) {
+function ProductCardFull({ product, addToCart }: productCardFullProps) {
 
     return (
         <>
@@ -32,7 +32,7 @@ function ProductCardFull({ product, updateCart }: productCardFullProps) {
             <p data-testid="price">$ {product.price}</p>
 
             {/* add to cart button && quantity input component */}
-            <QuantityInput product={product} updateCart={updateCart}/>
+            <QuantityInput product={product} addToCart={addToCart}/>
         </>
     )
 }

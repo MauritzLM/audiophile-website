@@ -8,10 +8,10 @@ import About from "../components/about";
 
 interface productProps {
     fetchedProducts: fetchedItems,
-    updateCart: (product: item, quantity: number) => void
+    addToCart: (product: item, quantity: number) => void
 }
 
-function Product({ fetchedProducts, updateCart }: productProps) {
+function Product({ fetchedProducts, addToCart }: productProps) {
     // get category and product name from params
     const { productname, category } = useParams();
 
@@ -25,7 +25,7 @@ function Product({ fetchedProducts, updateCart }: productProps) {
             {/* go back */}
             <h1>{productname} page</h1>
             {/* product card full component - update cart && product props */}
-            <ProductCardFull product={product!} updateCart={updateCart} />
+            <ProductCardFull product={product!} addToCart={addToCart} />
 
             {/* product features */}
             <ProductFeatures product={product!} />

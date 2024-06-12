@@ -3,10 +3,10 @@ import { item } from "../types"
 
 interface quantityInputProps {
   product: item,
-  updateCart: (product: item, qauntity: number) => void
+  addToCart: (product: item, qauntity: number) => void
 }
 
-function QuantityInput({ product, updateCart }: quantityInputProps) {
+function QuantityInput({ product, addToCart }: quantityInputProps) {
   const [inputValue, setInputValue] = useState(1)
 
   const lowerQuantity = function () {
@@ -28,16 +28,15 @@ function QuantityInput({ product, updateCart }: quantityInputProps) {
   return (
     <>
       <div>
-        <label htmlFor="quantity">quantity</label>
-        <div>
+        <label htmlFor="quantity">quantity
           {/* remove button */}
-          <button data-testid="remove" className="remove-btn" onClick={lowerQuantity}>-</button>
+          <button className="remove-btn" onClick={lowerQuantity}>-</button>
 
           <input name="quantity" id="quantity" type="number" value={inputValue} onChange={(e) => setInputValue(Number(e.target.value))} min="1" max="5"></input>
           {/* add button */}
-          <button data-testid="add" className="add-btn" onClick={increaseQuantity}>+</button>
-        </div>
-        <button onClick={() => updateCart(product, inputValue)}>add to cart</button>
+          <button className="add-btn" onClick={increaseQuantity}>+</button>
+        </label>
+        <button onClick={() => addToCart(product, inputValue)}>add to cart</button>
       </div>
     </>
   )
