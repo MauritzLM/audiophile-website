@@ -21,7 +21,7 @@ function OtherProducts({ product }: otherProductProps) {
               <img src={`/src/${item.image.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
             </picture>
 
-            <h3>{item.name}</h3>
+            <h3 data-testid="item-name">{item.name}</h3>
 
             {/* link to product page - need to add category property on object* */}
             {/* <Link to={``}>{}</Link> */}
