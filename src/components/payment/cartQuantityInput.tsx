@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { item } from "../../types"
 
 interface cartQuantityInputProps {
@@ -8,15 +8,8 @@ interface cartQuantityInputProps {
 }
 
 function CartQuantityInput({ product, cart, updateCart }: cartQuantityInputProps) {
-    // determine quantity of item
-    let quantity = 0;
-    cart.forEach(item => {
-        if (item.name === product.name) {
-            quantity++
-        }
-    });
 
-    const [inputValue, setInputValue] = useState(quantity);
+    const [inputValue, setInputValue] = useState(0);
 
     const updateQuantity = (operator: string) => {
 
@@ -36,6 +29,18 @@ function CartQuantityInput({ product, cart, updateCart }: cartQuantityInputProps
             updateCart(product, inputValue + 1)
         }
     };
+
+    useEffect(() => {
+        // each time cart changes recalculate the quantity
+        let quantity = 0;
+        cart.forEach(item => {
+            if (item.name === product.name) {
+                quantity++
+            }
+        });
+        setInputValue(quantity)
+
+    }, [cart, product.name])
 
     return (
         <>
