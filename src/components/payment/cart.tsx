@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { item } from "../../types";
 import CartQuantityInput from "./cartQuantityInput";
 
@@ -8,7 +9,7 @@ interface cartProps {
 }
 
 function Cart({ cart, updateCart, clearCart }: cartProps) {
-  
+
   // array to keep track of unique items
   const compareArr: string[] = [];
   // sort cart array by price
@@ -17,12 +18,12 @@ function Cart({ cart, updateCart, clearCart }: cartProps) {
   return (
     <>
       {/* remove all */}
-      <button onClick={clearCart}>remove all</button>
+      <button onClick={clearCart}>Remove all</button>
 
       <h2>Cart ({cart.length})</h2>
 
       <ul>
-        {/* for each unique item* */}
+        {/* for each unique item */}
         {cartSorted.map((item) => {
           // check if item is unique
           if (compareArr.includes(item.name)) {
@@ -44,7 +45,10 @@ function Cart({ cart, updateCart, clearCart }: cartProps) {
       </ul>
 
       {/* display total* */}
+      <div><span>Price</span><span data-testid="price">$ {cartSorted.reduce((accumulator, item) => accumulator + item.price, 0)}</span></div>
+
       {/* checkout link* */}
+      <Link to="/checkout">Checkout</Link>
 
     </>
   )
