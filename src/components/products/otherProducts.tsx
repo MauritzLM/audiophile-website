@@ -11,7 +11,7 @@ function OtherProducts({ product }: otherProductProps) {
     <>
       <div>
        <h2>You may also like</h2>
-        {product.others.map((item, index) => {
+        {product?.others.map((item, index) => {
           return <div data-testid="other-product" key={`other-${index}`}>
             <picture>
               {/* fix image links in db* */}
