@@ -11,6 +11,7 @@ interface checkoutFormProps {
 function CheckoutForm({ cart }: checkoutFormProps) {
     const [paymentMethod, setPaymentMethod] = useState("e-money");
     // errors state*
+    const [errors, setErrors] = useState({ name: "", email: "", phone: "", address: "", zipCode: "", city: "", country: "", eMoneyNum: "", eMoneyPin: "" })
     // error class to display errors*
     // on submit function*
     return (
@@ -21,17 +22,20 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                     {/* billing details */}
                     <fieldset>
                         <legend>Billing Details</legend>
-                        <div>
+                        <div className={errors.name ? "error" : ''}>
+                            <span className="error-msg">{errors.name}</span>
                             <label htmlFor="name">Name</label>
                             <input name="name" id="name" type="text" />
                         </div>
 
-                        <div>
+                        <div className={errors.email ? "error" : ''}>
+                            <span className="error-msg">{errors.email}</span>
                             <label htmlFor="email">Email address</label>
                             <input name="email" id="email" type="email" />
                         </div>
 
-                        <div>
+                        <div className={errors.phone ? "error" : ''}>
+                            <span className="error-msg">{errors.phone}</span>
                             <label htmlFor="phone">Phone</label>
                             <input name="phone" id="phone" type="tel" />
                         </div>
@@ -41,22 +45,26 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                     {/* shipping info */}
                     <fieldset>
                         <legend>Shipping info</legend>
-                        <div>
+                        <div className={errors.address ? "error" : ''}>
+                            <span className="error-msg">{errors.address}</span>
                             <label htmlFor="address">address</label>
                             <input name="address" id="address" type="text" />
                         </div>
 
-                        <div>
+                        <div className={errors.zipCode ? "error" : ''}>
+                            <span className="error-msg">{errors.zipCode}</span>
                             <label htmlFor="zipcode">ZIP code</label>
                             <input name="zipcode" id="zipcode" type="tel" />
                         </div>
 
-                        <div>
+                        <div className={errors.city ? "error" : ''}>
+                            <span className="error-msg">{errors.city}</span>
                             <label htmlFor="city">city</label>
                             <input name="city" id="city" type="text" />
                         </div>
 
-                        <div>
+                        <div className={errors.country ? "error" : ''}>
+                            <span className="error-msg">{errors.country}</span>
                             <label htmlFor="country">country</label>
                             <input name="country" id="country" type="text" />
                         </div>
@@ -67,14 +75,15 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                         <legend>Payment Details</legend>
                         <div>
                             <span>Payment method</span>
+
                             <div>
                                 <label htmlFor="e-money">E-money</label>
-                                <input name="method" id="e-money" type="radio" value="e-money" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
+                                <input className={paymentMethod === "e-money" ? "cs-active" : ""} name="method" id="e-money" type="radio" value="e-money" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
                             </div>
 
                             <div>
                                 <label htmlFor="cash">Cash on delivery</label>
-                                <input name="method" id="cash" type="radio" value="cash" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
+                                <input className={paymentMethod === "cash" ? "cs-active" : ""} name="method" id="cash" type="radio" value="cash" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
                             </div>
 
 
@@ -82,13 +91,15 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                             {paymentMethod === 'e-money' ?
                                 // e-money selected
                                 <div className="payment-method">
-                                    <div>
+                                    <div className={errors.eMoneyNum ? "error" : ''}>
+                                        <span className="error-msg">{errors.eMoneyNum}</span>
                                         <label htmlFor="e-money-num">e-money number</label>
-                                        <input id="e-money-num" name="e-money-num" type="number" />
+                                        <input id="e-money-num" name="e-money-num" type="text" />
                                     </div>
-                                    <div>
+                                    <div className={errors.eMoneyPin ? "error" : ''}>
+                                        <span className="error-msg">{errors.eMoneyPin}</span>
                                         <label htmlFor="e-money-pin">e-money PIN</label>
-                                        <input id="e-money-pin" name="e-money-pin" type="number" />
+                                        <input id="e-money-pin" name="e-money-pin" type="text" />
                                     </div>
 
                                 </div>
