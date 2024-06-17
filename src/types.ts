@@ -55,3 +55,16 @@ export interface item {
 export interface fetchedItems {
     [key: string]: item[],
 }
+
+// errors
+export interface error {
+    type: string,
+    value: string,
+    msg: string,
+    path: string,
+    location: string
+}
+
+export interface errorObj {
+    [key: string]: string
+}
