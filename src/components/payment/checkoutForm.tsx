@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { item, error, errorObj } from "../../types"
+import { item, error, formObj } from "../../types"
 // import order summary and render inside form*
 import OrderSummary from "./orderSummary"
 
@@ -8,15 +8,16 @@ interface checkoutFormProps {
 }
 
 // initial error state
-const initialErrorState = { "name": "", "email": "", "phone": "", "address": "", "zipCode": "", "city": "", "country": "", "eMoneyNum": "", "eMoneyPin": "" };
+const initialFormState = { "name": "", "email": "", "phone": "", "address": "", "zipCode": "", "city": "", "country": "", "eMoneyNum": "", "eMoneyPin": "" };
 
 
 function CheckoutForm({ cart }: checkoutFormProps) {
-    const [paymentMethod, setPaymentMethod] = useState("e-money")
+    const [paymentMethod, setPaymentMethod] = useState("e-money");
     // errors state
-    const [errors, setErrors] = useState<errorObj>(initialErrorState);
+    const [errors, setErrors] = useState<formObj>(initialFormState);
 
-    // add controlled components*
+    // controlled input components
+    const [formData, setFormData] = useState<formObj>(initialFormState);
 
     // on submit function*
     const handleSubmit = async function (event: React.FormEvent<HTMLFormElement>) {
@@ -24,28 +25,28 @@ function CheckoutForm({ cart }: checkoutFormProps) {
 
             event.preventDefault();
 
-            const formData = new FormData(event.currentTarget)
-
             console.log(formData);
 
             const response = await fetch('http://localhost:3000/payment/submit', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(formData)
             });
 
             const message = await response.json();
 
-
             // if errors - update errors state
             if (message.errors) {
-                const errorObj: errorObj = {}
+                const errorObj: formObj = {}
 
                 message.errors.forEach((item: error) => {
                     errorObj[item.path] = item.msg
                 });
 
                 // update state
-                setErrors({ ...initialErrorState, ...errorObj });
+                setErrors({ ...initialFormState, ...errorObj });
             }
 
             console.log(message)
@@ -65,19 +66,19 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                         <div className={errors.name ? "error" : ''}>
                             <span className="error-msg">{errors.name}</span>
                             <label htmlFor="name">Name</label>
-                            <input name="name" id="name" type="text" />
+                            <input name="name" id="name" type="text" value={formData.name} onInput={(e) => setFormData({ ...formData, "name": e.currentTarget.value })} />
                         </div>
 
                         <div className={errors.email ? "error" : ''}>
                             <span className="error-msg">{errors.email}</span>
                             <label htmlFor="email">Email address</label>
-                            <input name="email" id="email" type="email" />
+                            <input name="email" id="email" type="email" value={formData.email} onInput={(e) => setFormData({ ...formData, "email": e.currentTarget.value })} />
                         </div>
 
                         <div className={errors.phone ? "error" : ''}>
                             <span className="error-msg">{errors.phone}</span>
                             <label htmlFor="phone">Phone</label>
-                            <input name="phone" id="phone" type="tel" />
+                            <input name="phone" id="phone" type="tel" value={formData.phone} onInput={(e) => setFormData({ ...formData, "phone": e.currentTarget.value })} />
                         </div>
 
                     </fieldset>
@@ -88,25 +89,25 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                         <div className={errors.address ? "error" : ''}>
                             <span className="error-msg">{errors.address}</span>
                             <label htmlFor="address">address</label>
-                            <input name="address" id="address" type="text" />
+                            <input name="address" id="address" type="text" value={formData.address} onInput={(e) => setFormData({ ...formData, "address": e.currentTarget.value })} />
                         </div>
 
                         <div className={errors.zipCode ? "error" : ''}>
                             <span className="error-msg">{errors.zipCode}</span>
                             <label htmlFor="zipcode">ZIP code</label>
-                            <input name="zipcode" id="zipcode" type="tel" />
+                            <input name="zipcode" id="zipcode" type="tel" value={formData.zipCode} onInput={(e) => setFormData({ ...formData, "zipCode": e.currentTarget.value })} />
                         </div>
 
                         <div className={errors.city ? "error" : ''}>
                             <span className="error-msg">{errors.city}</span>
                             <label htmlFor="city">city</label>
-                            <input name="city" id="city" type="text" />
+                            <input name="city" id="city" type="text" value={formData.city} onInput={(e) => setFormData({ ...formData, "city": e.currentTarget.value })} />
                         </div>
 
                         <div className={errors.country ? "error" : ''}>
                             <span className="error-msg">{errors.country}</span>
                             <label htmlFor="country">country</label>
-                            <input name="country" id="country" type="text" />
+                            <input name="country" id="country" type="text" value={formData.country} onInput={(e) => setFormData({ ...formData, "country": e.currentTarget.value })} />
                         </div>
                     </fieldset>
 
