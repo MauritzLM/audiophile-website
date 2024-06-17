@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { item } from "../../types"
+import React, { useState } from "react"
+import { item, error, errorObj } from "../../types"
 // import order summary and render inside form*
 import OrderSummary from "./orderSummary"
 
@@ -7,16 +7,56 @@ interface checkoutFormProps {
     cart: item[]
 }
 
+// initial error state
+const initialErrorState = { "name": "", "email": "", "phone": "", "address": "", "zipCode": "", "city": "", "country": "", "eMoneyNum": "", "eMoneyPin": "" };
+
 
 function CheckoutForm({ cart }: checkoutFormProps) {
-    const [paymentMethod, setPaymentMethod] = useState("e-money");
-    // errors state*
-    const [errors, setErrors] = useState({ name: "", email: "", phone: "", address: "", zipCode: "", city: "", country: "", eMoneyNum: "", eMoneyPin: "" })
-    // error class to display errors*
+    const [paymentMethod, setPaymentMethod] = useState("e-money")
+    // errors state
+    const [errors, setErrors] = useState<errorObj>(initialErrorState);
+
+    // add controlled components*
+
     // on submit function*
+    const handleSubmit = async function (event: React.FormEvent<HTMLFormElement>) {
+        try {
+
+            event.preventDefault();
+
+            const formData = new FormData(event.currentTarget)
+
+            console.log(formData);
+
+            const response = await fetch('http://localhost:3000/payment/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const message = await response.json();
+
+
+            // if errors - update errors state
+            if (message.errors) {
+                const errorObj: errorObj = {}
+
+                message.errors.forEach((item: error) => {
+                    errorObj[item.path] = item.msg
+                });
+
+                // update state
+                setErrors({ ...initialErrorState, ...errorObj });
+            }
+
+            console.log(message)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <>
-            <form>
+            <form method="post" onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <h2>Checkout</h2>
                     {/* billing details */}
