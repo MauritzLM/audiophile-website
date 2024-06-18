@@ -8,7 +8,7 @@ interface checkoutFormProps {
 }
 
 // initial error state
-const initialFormState = { "name": "", "email": "", "phone": "", "address": "", "zipCode": "", "city": "", "country": "", "eMoneyNum": "", "eMoneyPin": "" };
+const initialFormState = { "name": "", "email": "", "phone": "", "address": "", "zipCode": "", "city": "", "country": "", "eMoneyNum": "", "eMoneyPin": "", "paymentMethod": "e-money" };
 
 
 function CheckoutForm({ cart }: checkoutFormProps) {
@@ -54,7 +54,14 @@ function CheckoutForm({ cart }: checkoutFormProps) {
         } catch (error) {
             console.log(error)
         }
-    }
+    };
+
+    // payment option select change
+    const changeOption = function (event: React.ChangeEvent<HTMLInputElement>) {
+        setPaymentMethod(event.currentTarget.value)
+        setFormData({ ...formData, "paymentMethod": event.currentTarget.value })
+    };
+
     return (
         <>
             <form method="post" onSubmit={(e) => handleSubmit(e)}>
@@ -119,12 +126,12 @@ function CheckoutForm({ cart }: checkoutFormProps) {
 
                             <div>
                                 <label htmlFor="e-money">E-money</label>
-                                <input className={paymentMethod === "e-money" ? "cs-active" : ""} name="method" id="e-money" type="radio" value="e-money" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
+                                <input className={paymentMethod === "e-money" ? "cs-active" : ""} name="method" id="e-money" type="radio" value="e-money" onChange={(e) => changeOption(e)} checked={paymentMethod === "e-money"} />
                             </div>
 
                             <div>
                                 <label htmlFor="cash">Cash on delivery</label>
-                                <input className={paymentMethod === "cash" ? "cs-active" : ""} name="method" id="cash" type="radio" value="cash" onClick={(e) => setPaymentMethod((e.target as HTMLInputElement).value)} />
+                                <input className={paymentMethod === "cash" ? "cs-active" : ""} name="method" id="cash" type="radio" value="cash" onChange={(e) => changeOption(e)} checked={paymentMethod === "cash"} />
                             </div>
 
 
