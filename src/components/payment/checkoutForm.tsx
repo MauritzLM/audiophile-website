@@ -39,14 +39,14 @@ function CheckoutForm({ cart }: checkoutFormProps) {
 
             // if errors - update errors state
             if (message.errors) {
-                const errorObj: formObj = {}
+                const currentErrors: formObj = {}
 
                 message.errors.forEach((item: error) => {
-                    errorObj[item.path] = item.msg
+                    currentErrors[item.path] = item.msg
                 });
 
                 // update state
-                setErrors({ ...initialFormState, ...errorObj });
+                setErrors({ ...initialFormState, ...currentErrors });
             }
 
             console.log(message)
@@ -142,12 +142,12 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                                     <div className={errors.eMoneyNum ? "error" : ''}>
                                         <span className="error-msg">{errors.eMoneyNum}</span>
                                         <label htmlFor="e-money-num">e-money number</label>
-                                        <input id="e-money-num" name="e-money-num" type="text" />
+                                        <input id="e-money-num" name="e-money-num" type="text" value={formData.eMoneyNum} onInput={(e) => setFormData({ ...formData, "eMoneyNum": e.currentTarget.value })} />
                                     </div>
                                     <div className={errors.eMoneyPin ? "error" : ''}>
                                         <span className="error-msg">{errors.eMoneyPin}</span>
                                         <label htmlFor="e-money-pin">e-money PIN</label>
-                                        <input id="e-money-pin" name="e-money-pin" type="text" />
+                                        <input id="e-money-pin" name="e-money-pin" type="text" value={formData.eMoneyPin} onInput={(e) => setFormData({ ...formData, "eMoneyPin": e.currentTarget.value })} />
                                     </div>
 
                                 </div>
