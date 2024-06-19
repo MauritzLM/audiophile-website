@@ -25,12 +25,18 @@ describe("cart component", () => {
         expect(screen.getByTestId("price").textContent).toMatch("$ 9999");
     });
 
+    it("rendering empty cart", () => {
+        render(<BrowserRouter><Cart cart={[]} updateCart={updateCart} clearCart={clearCart} /></BrowserRouter>);
+
+        expect(screen.getByText("cart is empty")).toBeInTheDocument();
+    });
+
     // test user actions - remove all
     it("test remove all button", async () => {
         render(<BrowserRouter><Cart cart={cartContents} updateCart={updateCart} clearCart={clearCart} /></BrowserRouter>);
 
         const user = userEvent.setup();
-        
+
         const removeButton = screen.getByText("Remove all");
 
         await user.click(removeButton);
