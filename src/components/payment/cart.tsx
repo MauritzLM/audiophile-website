@@ -12,8 +12,18 @@ function Cart({ cart, updateCart, clearCart }: cartProps) {
 
   // array to keep track of unique items
   const compareArr: string[] = [];
-  // sort cart array by price
+  // sort cart array by item price
   const cartSorted = cart.sort((a, b) => b.price - a.price)
+
+  // empty cart
+  if (!cart.length) {
+    return (
+      <>
+        <h2>Cart ({cart.length})</h2>
+        <p>cart is empty</p>
+      </>
+    )
+  }
 
   return (
     <>
