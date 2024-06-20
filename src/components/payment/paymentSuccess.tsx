@@ -30,7 +30,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
 
   return (
     <>
-      <h2>Thank you!</h2>
+      <h2>Thank you for your order</h2>
       <p>email confirmation</p>
       <div>
         <div className="cart-contents">
@@ -63,29 +63,26 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                 </li>
               }
 
-              // remaining items
-              return <div className={expandedView ? "" : "hidden"}>
-                <li key={item.name}>
-                  {/* image* name price */}
-                  <h4>{item.name}</h4>
-                  <p>{item.price}</p>
+              // remaining items with hidden class
+              return <li className={expandedView ? "" : "hidden"} key={item.name}>
+                {/* image* name price */}
+                <h4>{item.name}</h4>
+                <p>{item.price}</p>
 
-                  <span>x{quantity}</span>
-                </li>
-
-              </div>
+                <span>x{quantity}</span>
+              </li>
             }
           })}
 
           {/* other cart items view toggle if more than 1 unique items */}
           {Object.keys(compareObj).length > 1 && (
-            <button onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
+            <button data-testid="expand" onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
           )}
 
         </div>
         <div className="total">
           <span>Grand total</span>
-          <p>{total}</p>
+          <p>$ {total + 50}</p>
         </div>
       </div>
 
