@@ -19,7 +19,7 @@ function Header({ handleViewCart }: headerProps) {
                   <li><Link to="/earphones">earphones</Link></li>
                </ul>
                {/* cart display button* */}
-               <button onClick={handleViewCart}></button>
+               <button aria-label="cart" onClick={handleViewCart}><img src="/src/assets/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
             </nav>
          </header>
       </>
