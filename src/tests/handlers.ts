@@ -1,4 +1,5 @@
 import { http, HttpResponse } from "msw"
+import { test_item } from "./mocks";
 
 
 // form submission with error response
@@ -11,5 +12,19 @@ export const formHandlers = [
             ]
         }
         );
+    })
+];
+
+export const categoryHandlers = [
+    http.get("http://localhost:3000/category/speakers", async () => {
+        return HttpResponse.json({
+            // respond with category items
+        });
+    })
+];
+
+export const productHandlers = [
+    http.get("http://localhost:3000/product/ZX7%20Speaker", async () => {
+        return HttpResponse.json(test_item);
     })
 ];
