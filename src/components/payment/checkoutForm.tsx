@@ -5,7 +5,8 @@ import OrderSummary from "./orderSummary"
 
 interface checkoutFormProps {
     cart: item[],
-    handlePayment: () => void
+    handlePayment: () => void,
+    paymentSuccess: boolean
 }
 
 // initial error state
@@ -14,7 +15,7 @@ const initialFormState = {
 };
 
 
-function CheckoutForm({ cart, handlePayment }: checkoutFormProps) {
+function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps) {
     const [paymentMethod, setPaymentMethod] = useState("e-money");
     // errors state
     const [errors, setErrors] = useState<formObj>(initialFormState);
@@ -167,7 +168,7 @@ function CheckoutForm({ cart, handlePayment }: checkoutFormProps) {
 
                 <div>
                     <OrderSummary cart={cart} />
-                    <button type="submit">Continue & Pay</button>
+                    <button type="submit" disabled={paymentSuccess}>Continue & Pay</button>
                 </div>
             </form>
         </>
