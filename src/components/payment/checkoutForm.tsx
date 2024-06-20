@@ -4,7 +4,8 @@ import { item, error, formObj } from "../../types"
 import OrderSummary from "./orderSummary"
 
 interface checkoutFormProps {
-    cart: item[]
+    cart: item[],
+    handlePayment: () => void
 }
 
 // initial error state
@@ -13,7 +14,7 @@ const initialFormState = {
 };
 
 
-function CheckoutForm({ cart }: checkoutFormProps) {
+function CheckoutForm({ cart, handlePayment }: checkoutFormProps) {
     const [paymentMethod, setPaymentMethod] = useState("e-money");
     // errors state
     const [errors, setErrors] = useState<formObj>(initialFormState);
@@ -49,6 +50,8 @@ function CheckoutForm({ cart }: checkoutFormProps) {
             }
 
             console.log(message)
+            // success
+            handlePayment();
 
         } catch (error) {
             console.log(error)
@@ -63,7 +66,7 @@ function CheckoutForm({ cart }: checkoutFormProps) {
 
     return (
         <>
-            <form method="post" onSubmit={(e) => handleSubmit(e)}>
+            <form aria-label="checkout form" name="checkout form" method="post" onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <h2>Checkout</h2>
                     {/* billing details */}
@@ -154,12 +157,10 @@ function CheckoutForm({ cart }: checkoutFormProps) {
                                 // cash selected
                                 <div className="payment-method">
                                     <img src="/src/assets/images/checkout/icon-cash-on-delivery.svg" alt="" height="48" width="48" aria-hidden="true" loading="lazy" decoding="async"></img>
-                                    <p>The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence.
+                                    <p data-testid="cash-option">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence.
                                         Just make sure your address is correct so that your order will not be cancelled.</p>
                                 </div>
                             }
-
-
                         </div>
                     </fieldset>
                 </div>
