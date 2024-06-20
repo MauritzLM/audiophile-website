@@ -20,6 +20,8 @@ function App() {
   const [featured, setFeatured] = useState<item[]>([])
   // cart state
   const [cart, setCart] = useState<item[]>([]);
+  // view cart
+  const [viewCart, setViewCart] = useState(false);
 
   // update fetched products state function
   const updateProducts = function (category: string, items: item[]) {
@@ -60,6 +62,15 @@ function App() {
     setCart([])
   }
 
+  const handleViewCart = function () {
+    if (viewCart) {
+      setViewCart(false)
+      return
+    }
+
+    setViewCart(true)
+  }
+
 
   // fetch featured products
   async function fetchFeatured() {
@@ -86,14 +97,14 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header handleViewCart={handleViewCart} />
       <main id='main'>
-        <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} />
+        <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} viewCart={viewCart} />
         <Routes>
           <Route path='/' element={<Home featured={featured} />} />
           <Route path='/:category' element={<Category fetchedProducts={fetchedProducts} updateProducts={updateProducts} />} />
           <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} addToCart={addToCart} />} />
-          <Route path='/checkout' element={<Checkout cart={cart} />} />
+          <Route path='/checkout' element={<Checkout cart={cart} clearCart={clearCart} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </main>
