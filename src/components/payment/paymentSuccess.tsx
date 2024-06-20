@@ -30,64 +30,68 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
 
   return (
     <>
-      <h2>Thank you for your order</h2>
-      <p>email confirmation</p>
-      <div>
-        <div className="cart-contents">
-          {cartSorted.map((item, index) => {
+      <div className="payment-success-wrapper">
+        <div className="payment-success">
+          <h2>Thank you for your order</h2>
+          <p>email confirmation</p>
+          <div>
+            <div className="cart-contents">
+              {cartSorted.map((item, index) => {
 
-            // if item not unique
-            if (compareObj[item.name]) {
-              compareObj[item.name]++
+                // if item not unique
+                if (compareObj[item.name]) {
+                  compareObj[item.name]++
 
-              return
-            }
-            else {
-              // add item to compare obj
-              compareObj[item.name] = 1
+                  return
+                }
+                else {
+                  // add item to compare obj
+                  compareObj[item.name] = 1
 
-              // calculate each unique items' quantity
-              let quantity = 0
-              cart.forEach(a => {
-                if (a.name === item.name) quantity++
-              })
+                  // calculate each unique items' quantity
+                  let quantity = 0
+                  cart.forEach(a => {
+                    if (a.name === item.name) quantity++
+                  })
 
-              // first item (highest price)
-              if (index === 0) {
-                return <li key={item.name}>
-                  {/* image* name price */}
-                  <h4>{item.name}</h4>
-                  <p>{item.price}</p>
+                  // first item (highest price)
+                  if (index === 0) {
+                    return <li key={item.name}>
+                      {/* image* name price */}
+                      <h4>{item.name}</h4>
+                      <p>{item.price}</p>
 
-                  <span>x{quantity}</span>
-                </li>
-              }
+                      <span>x{quantity}</span>
+                    </li>
+                  }
 
-              // remaining items with hidden class
-              return <li className={expandedView ? "" : "hidden"} key={item.name}>
-                {/* image* name price */}
-                <h4>{item.name}</h4>
-                <p>{item.price}</p>
+                  // remaining items with hidden class
+                  return <li className={expandedView ? "" : "hidden"} key={item.name}>
+                    {/* image* name price */}
+                    <h4>{item.name}</h4>
+                    <p>{item.price}</p>
 
-                <span>x{quantity}</span>
-              </li>
-            }
-          })}
+                    <span>x{quantity}</span>
+                  </li>
+                }
+              })}
 
-          {/* other cart items view toggle if more than 1 unique items */}
-          {Object.keys(compareObj).length > 1 && (
-            <button data-testid="expand" onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
-          )}
+              {/* other cart items view toggle if more than 1 unique items */}
+              {Object.keys(compareObj).length > 1 && (
+                <button data-testid="expand" onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
+              )}
 
-        </div>
-        <div className="total">
-          <span>Grand total</span>
-          <p>$ {total + 50}</p>
+            </div>
+            <div className="total">
+              <span>Grand total</span>
+              <p>$ {total + 50}</p>
+            </div>
+          </div>
+
+          {/* back to home link */}
+          <Link onClick={clearCart} to="/">back to home</Link>
         </div>
       </div>
-
-      {/* back to home link */}
-      <Link onClick={clearCart} to="/">back to home</Link>
     </>
   )
 }
