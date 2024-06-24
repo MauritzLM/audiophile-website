@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Categories from "./products/categories"
 
 interface headerProps {
    handleViewCart: () => void
@@ -9,7 +10,10 @@ function Header({ handleViewCart }: headerProps) {
       <>
          <header>
             <nav>
-               {/* categories component for mobile nav* */}
+               {/* categories component for mobile nav */}
+               <div className="header-categories">
+                  <Categories />
+               </div>
 
                {/* desktop links */}
                <ul>
@@ -18,6 +22,7 @@ function Header({ handleViewCart }: headerProps) {
                   <li><Link to="/speakers">speakers</Link></li>
                   <li><Link to="/earphones">earphones</Link></li>
                </ul>
+
                {/* cart display button* */}
                <button aria-label="cart" onClick={handleViewCart}><img src="/src/assets/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
             </nav>
