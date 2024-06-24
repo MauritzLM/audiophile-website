@@ -28,6 +28,8 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
         try {
             event.preventDefault();
 
+            console.log(formData);
+
             const response = await fetch('http://localhost:3000/payment/submit', {
                 method: 'POST',
                 headers: {
@@ -48,6 +50,8 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
 
                 // update state
                 setErrors({ ...initialFormState, ...currentErrors });
+ 
+                return;
             }
 
             console.log(message)
