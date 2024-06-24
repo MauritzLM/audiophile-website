@@ -1,5 +1,4 @@
 
-
 import About from "../components/about"
 import Categories from "../components/products/categories"
 import { item } from "../types"
@@ -20,7 +19,7 @@ function Home({ featured }: homeProps) {
 
             {/* display featured items */}
             <ul>
-                {featured.map((item: item, index: number) => {
+                {featured?.map((item: item, index: number) => {
                     return <li key={`featured-${index}`}>{item.name}</li>
                 })}
             </ul>
