@@ -19,9 +19,9 @@ function App() {
   // featured products
   const [featured, setFeatured] = useState<item[]>([])
   // cart state
-  const [cart, setCart] = useState<item[]>([]);
+  const [cart, setCart] = useState<item[]>([])
   // view cart
-  const [viewCart, setViewCart] = useState(false);
+  const [viewCart, setViewCart] = useState(false)
 
   // update fetched products state function
   const updateProducts = function (category: string, items: item[]) {
@@ -40,9 +40,10 @@ function App() {
       newProduct.push(product)
     }
 
-    // update session info*
-
+    // update state
     setCart([...newCart, ...newProduct])
+    // update local storage
+    localStorage.setItem("cart", JSON.stringify([...newCart, ...newProduct]))
   }
 
   // add product quantity to cart
@@ -52,14 +53,17 @@ function App() {
       arr.push(product)
     }
 
-    // update session info*
-
+    // update state
     setCart([...cart, ...arr])
+    // update local storage
+    localStorage.setItem("cart", JSON.stringify([...cart, ...arr]))
   }
 
   // remove all items from cart
   const clearCart = function () {
     setCart([])
+    // clear local storage
+    localStorage.removeItem("cart")
   }
 
   const handleViewCart = function () {
@@ -89,11 +93,17 @@ function App() {
   }
 
   useEffect(() => {
+    // check local storage for cart
+    if (localStorage.cart) {
+      const savedCart = JSON.parse(localStorage.cart)
+      setCart([...savedCart])
+    }
+
     // fetch featured items if not yet done so
     if (!featured.length) {
       fetchFeatured()
     }
-  }, [featured.length]);
+  }, [featured.length])
 
   return (
     <>
