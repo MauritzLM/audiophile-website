@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw"
-import { test_item } from "./mocks";
+import { test_item, test_item_2 } from "./mocks";
 
 
 // form submission with error response
@@ -15,16 +15,22 @@ export const formHandlers = [
     })
 ];
 
+// respond with category item
 export const categoryHandlers = [
-    http.get("http://localhost:3000/category/speakers", async () => {
-        return HttpResponse.json({
-            // respond with category items
-        });
+    http.get("http://localhost:3000/category/*", async () => {
+        return HttpResponse.json(test_item_2);
     })
 ];
 
+// respond with product
 export const productHandlers = [
-    http.get("http://localhost:3000/product/ZX7%20Speaker", async () => {
+    http.get("http://localhost:3000/product/*", async () => {
         return HttpResponse.json(test_item);
+    })
+];
+
+export const featuredHandlers = [
+    http.get("http://locahost:3000/featured", async () => {
+        return HttpResponse.json([test_item, test_item_2]);
     })
 ];
