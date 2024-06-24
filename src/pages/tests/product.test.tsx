@@ -11,19 +11,38 @@ import Product from "../product";
 // mocks
 import { test_item, test_item_2 } from "../../tests/mocks";
 const addToCart = vi.fn();
-const fetchedProduct = { "earphones": [], "headphones": [test_item_2], "speakers": [test_item] }
+const fetchedProducts_1 = { "earphones": [], "headphones": [test_item_2], "speakers": [] }
+const fetchedProducts_2 = { "earphones": [], "headphones": [test_item_2], "speakers": [test_item] }
 
 // fetches product
 // renders product info
 describe("product page tests", () => {
-    it("rendering", async () => {
+    it("rendering when product not in app state", async () => {
         // server
         const server = setupServer(...productHandlers);
         server.listen();
 
         render(
             <MemoryRouter initialEntries={["?/speakers/ZX7%20Speaker"]}>
-                <Product fetchedProducts={fetchedProduct} addToCart={addToCart} />
+                <Product fetchedProducts={fetchedProducts_1} addToCart={addToCart} />
+            </MemoryRouter>
+        );
+
+        // expect product name - ZX7 Speaker
+        await waitFor(() => expect(screen.getByTestId("product-name").textContent).toMatch("ZX7 Speaker"));
+
+
+        server.close();
+    });
+
+    it("rendering when product already in app state", async () => {
+        // server
+        const server = setupServer(...productHandlers);
+        server.listen();
+
+        render(
+            <MemoryRouter initialEntries={["?/speakers/ZX7%20Speaker"]}>
+                <Product fetchedProducts={fetchedProducts_2} addToCart={addToCart} />
             </MemoryRouter>
         );
 
