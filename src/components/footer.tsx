@@ -20,6 +20,9 @@ function Footer() {
                 We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio.
                 Come and visit our demo facility - we’re open 7 days a week.</p>
 
+            {/* copyright */}
+            <p>Copyright 2021. All Rights Reserved</p>
+
             {/* social links */}
             <div className="social-links">
                 {/* facebook */}
