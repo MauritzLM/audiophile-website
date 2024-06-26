@@ -38,6 +38,7 @@
             font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1.07px;
+            color: black;
         }
 
         a {
@@ -45,6 +46,10 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
