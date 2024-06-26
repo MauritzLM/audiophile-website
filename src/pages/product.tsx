@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom"
-import { item, fetchedItems } from "../types";
-import ProductCardFull from "../components/products/productCardFull";
-import ProductFeatures from "../components/products/productFeatures";
-import OtherProducts from "../components/products/otherProducts";
-import Categories from "../components/products/categories";
-import About from "../components/about";
-import { useEffect, useState } from "react";
+import { item, fetchedItems } from "../types"
+import ProductCardFull from "../components/products/productCardFull"
+import ProductFeatures from "../components/products/productFeatures"
+import OtherProducts from "../components/products/otherProducts"
+import Categories from "../components/products/categories"
+import About from "../components/about"
+import { useEffect, useState } from "react"
+import "/src/assets/sass/product.scss"
 
 interface productProps {
     fetchedProducts: fetchedItems,

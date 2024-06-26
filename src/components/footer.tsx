@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function Footer() {
     return (
         <footer>
-            <div className="color=box"></div>
+            <div className="color-box"></div>
             {/* logo */}
             <img src="/src/assets/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
 

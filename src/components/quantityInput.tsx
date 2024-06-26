@@ -27,8 +27,8 @@ function QuantityInput({ product, addToCart }: quantityInputProps) {
 
   return (
     <>
-      <div>
-        <label htmlFor="quantity">quantity
+      <div className="quantity-input">
+        <label htmlFor="quantity">
           {/* remove button */}
           <button className="remove-btn" onClick={lowerQuantity}>-</button>
 
@@ -36,7 +36,7 @@ function QuantityInput({ product, addToCart }: quantityInputProps) {
           {/* add button */}
           <button className="add-btn" onClick={increaseQuantity}>+</button>
         </label>
-        <button onClick={() => addToCart(product, inputValue)}>add to cart</button>
+        <button className="cs-button" onClick={() => addToCart(product, inputValue)}>add to cart</button>
       </div>
     </>
   )

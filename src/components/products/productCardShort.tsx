@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import { item } from "../../types"
+import "/src/assets/sass/components/productCardShort.scss"
 
 interface productCardShortProps {
     item: item,
@@ -10,7 +11,7 @@ function ProductCardShort({ item, index }: productCardShortProps) {
     const { category } = useParams()
     return (
         <>
-            <li key={`${category}-${index}`}>
+            <li className="product-card-short" key={`${category}-${index}`}>
                 {/* image */}
                 <picture>
                     {/* fix category image naming* */}
@@ -21,14 +22,14 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 </picture>
                 
                 {/* new? */}
-                {item.new ? <p data-testid="new">new product</p> : ''}
+                {item.new ? <p className="new" data-testid="new">new product</p> : ''}
 
                 {/* name and description */}
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
 
                 {/* button */}
-                <Link to={`/${category}/${item.name}`}>See product</Link>
+                <Link className="cs-button" to={`/${category}/${item.name}`}>See product</Link>
             </li>
         </>
     )

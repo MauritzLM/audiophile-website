@@ -2,7 +2,7 @@
 function About() {
   return (
     <>
-      <section>
+      <section id="about">
         <picture>
           <source media="(max-width: 700px)" srcSet="/src/assets/images/shared/mobile/image-best-gear.jpg" />
           <source media="(max-width: 1000px)" srcSet="/src/assets/images/shared/tablet/image-best-gear.jpg" />
@@ -10,7 +10,7 @@ function About() {
           <img src="/src/assets/images/shared/desktop/image-best-gear.jpg" alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
         </picture>
        
-        <h2>Bringing you the best audio gear</h2>
+        <h2>Bringing you the <span>best</span> audio gear</h2>
         <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products.
           Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
