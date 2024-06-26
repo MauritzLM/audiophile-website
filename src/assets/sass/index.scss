@@ -70,10 +70,43 @@ main {
     display: none;
 }
 
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+// new product text
+.new {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: var(--primary);
+}
+
+/* buttons */
 button {
     cursor: pointer;
     background: transparent;
     border: none;
+    font: inherit;
+}
+
+.cs-button {
+    height: 48px;
+    width: 160px;
+    display: block;
+    text-align: center;
+    padding: 15px 0;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    font: inherit;
 }
 
 a {
@@ -82,6 +115,14 @@ a {
 
 ul {
     list-style: none;
+    padding: 0;
+}
+
+p {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 25px;
+    color: var(--grey-300);
 }
 
 
@@ -275,5 +316,72 @@ ul {
                 }
             }
         }
+    }
+}
+
+/* ABOUT SECTION */
+#about {
+    img {
+        border-radius: 8px;
+        width: 100%;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 28px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: center;
+
+        span {
+            color: var(--primary);
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+/* FOOTER */
+footer {
+    background-color: black;
+    text-align: center;
+    position: relative;
+    padding-top: 56px;
+    padding-bottom: 38px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    justify-items: center;
+
+    .color-box {
+        position: absolute;
+        top: 0;
+        background-color: var(--primary);
+        height: 4px;
+        width: 101px;
+    }
+
+    .sitemap {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;   
+
+        a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    }
+
+    .social-links {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
     }
 }
