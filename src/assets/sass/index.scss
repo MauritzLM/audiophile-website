@@ -6,6 +6,7 @@
 
     --grey-100: #fafafa;
     --grey-200: #f1f1f1;
+    --grey-300: #979797;
     --grey-900: #101010;
 }
 
@@ -60,6 +61,10 @@ body {
     margin: 0;
 }
 
+main {
+    padding-top: 90px;
+}
+
 // hidden class
 .hidden {
     display: none;
@@ -71,13 +76,22 @@ button {
     border: none;
 }
 
+a {
+    text-decoration: none;
+}
 
-// header / nav styles
+ul {
+    list-style: none;
+}
+
+
+// HEADER / NAV STYLES
 #cs-navigation {
     width: 100vw;
     background-color: black;
     position: fixed;
     top: 0;
+    z-index: 100;
 
 
     nav {
@@ -190,12 +204,19 @@ button {
         align-items: center;
         gap: 4em;
 
-
-        .header-categories {
+        .categories {
             width: 100vw;
             background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            align-items: center;
+            justify-content: center;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 32px 24px;
 
-            img {
+            .category-image {
                 height: 104px;
                 width: auto;
             }
@@ -206,6 +227,53 @@ button {
             display: none;
         }
     }
+}
 
+/* tablet header */
+@media screen and (min-width:768px) {
+    #cs-navigation {
 
+        .nav-links-wrapper {
+            .categories {
+                flex-direction: row;
+                gap: 10px;
+            }
+        }
+    }
+}
+
+/* desktop header */
+@media screen and (min-width: 1440px) {
+    #cs-navigation {
+        .cs-toggle {
+            display: none;
+        }
+
+        .nav-links-wrapper {
+            height: auto;
+            opacity: 1;
+            position: static;
+            z-index: 1;
+            transform: scaleX(1);
+
+            .categories {
+                display: none;
+            }
+
+            ul {
+                display: flex;
+                gap: 34px;
+
+                li {
+                    a {
+                        color: white;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        font-size: 13px;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
 }
