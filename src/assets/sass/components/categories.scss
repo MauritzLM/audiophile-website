@@ -1,0 +1,50 @@
+/* STYLES FOR THE CATEGORIES COMPONENT */
+
+.categories {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+
+    .category {
+        background-color: var(--grey-200);
+        width: 90%;
+        height: 165px;
+        text-align: center;
+        padding-top: 88px;
+        padding-bottom: 22px;
+        position: relative;
+        border-radius: 8px;
+
+        .category-image {
+            position: absolute;
+            top: -35px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            height: 104px;
+            width: auto;
+
+        }
+
+        p {
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.07px;
+        }
+
+        a {
+            color: var(--grey-300);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+    }
+}
