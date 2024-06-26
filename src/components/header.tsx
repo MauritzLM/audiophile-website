@@ -25,9 +25,7 @@ function Header({ handleViewCart }: headerProps) {
                <img src="/src/assets/svgs/logo.svg" alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
                {/* categories component for mobile nav */}
                <div className="nav-links-wrapper">
-                  <div className="header-categories">
-                     <Categories />
-                  </div>
+                  <Categories />
 
                   {/* desktop links */}
                   <ul>
