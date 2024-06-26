@@ -1,0 +1,24 @@
+/* STYLES FOR THE OTHER PRODUCTS COMPONENT */
+.other-products {
+    h2 {
+        text-align: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 56px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
