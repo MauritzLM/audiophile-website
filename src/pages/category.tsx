@@ -14,6 +14,8 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
     const { category } = useParams();
 
     useEffect(() => {
+        // scroll to top
+        window.scrollTo(0, 0);
 
         // function to fetch category in params
         async function fetchCategory() {
@@ -38,6 +40,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
         }
 
     }, [category, fetchedProducts, updateProducts])
+
 
     return (
         <>

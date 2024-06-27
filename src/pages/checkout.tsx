@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { item } from "../types"
 import CheckoutForm from "../components/payment/checkoutForm"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import PaymentSuccess from "../components/payment/paymentSuccess"
 
 interface checkoutProps {
@@ -20,6 +20,11 @@ function Checkout({ cart, clearCart }: checkoutProps) {
 
     // render checkout form and order summary*
     // if paid render payment success component*
+
+    // scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
 
     if (paymentSuccess) {
@@ -44,7 +49,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
             <Link to="/">go back</Link>
             {/* form component* */}
 
-            <CheckoutForm cart={cart} handlePayment={handlePayment} />
+            <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
         </>
     )
 }

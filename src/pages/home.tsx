@@ -3,13 +3,19 @@ import { Link } from "react-router-dom"
 import About from "../components/about"
 import Categories from "../components/products/categories"
 import { item } from "../types"
-import { NavLink } from "react-router-dom"
+import "/src/assets/sass/home.scss"
+import { useEffect } from "react"
 
 interface homeProps {
     featured: item[]
 }
 
 function Home({ featured }: homeProps) {
+
+    // scroll to top
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <>
@@ -18,8 +24,8 @@ function Home({ featured }: homeProps) {
                 <picture>
                     <source media="(max-width: 700px)" srcSet="/src/assets/images/home/mobile/image-header.jpg" />
                     <source media="(max-width: 1000px)" srcSet="/src/assets/images/home/tablet/image-header.jpg" />
-                    <source media="(min-width: 1001px)" srcSet="/src/assets/images/home/desktop/image-header.jpg" />
-                    <img src="/src/assets/images/home/desktop/image-header.jpg" alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
+                    <source media="(min-width: 1001px)" srcSet="/src/assets/images/home/desktop/image-hero.jpg" />
+                    <img src="/src/assets/images/home/desktop/image-hero.jpg" alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
                 </picture>
 
                 <div className="cs-text">

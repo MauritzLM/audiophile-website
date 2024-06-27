@@ -21,26 +21,28 @@ function Product({ fetchedProducts, addToCart }: productProps) {
 
     // if product not in state then fetch it and update state
     useEffect(() => {
+        // scroll top top
+        window.scrollTo(0, 0);
 
         // function to fetch product
         async function fetchProduct() {
             try {
                 const response = await fetch(`http://localhost:3000/product/${productname}`);
-    
+
                 const fetchedProduct = await response.json();
-    
+
                 setProduct(fetchedProduct);
-    
+
             } catch (error) {
                 console.log(error);
             }
         }
-        
+
         // if product is already in app state
-        if(fetchedProducts[category!] && fetchedProducts[category!].find(item => item.name === productname)) {
+        if (fetchedProducts[category!] && fetchedProducts[category!].find(item => item.name === productname)) {
             setProduct(fetchedProducts[category!].find(item => item.name === productname))
         }
-        
+
         // if product not found
         if (!product) {
             fetchProduct();
