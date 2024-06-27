@@ -1,13 +1,18 @@
 /* CATEGORY PAGE STYLES */
 
 /* HERO SECTION */
-#hero {
+#inner-hero {
     background-color: var(--navBackground);
     height: 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     h1 {
         color: white;
         font-size: 28px;
         letter-spacing: 2px;
+        text-align: center;
     }
 }

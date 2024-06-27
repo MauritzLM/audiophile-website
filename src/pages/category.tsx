@@ -45,7 +45,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
 
     return (
         <>
-            <section id="hero">
+            <section id="inner-hero">
                 <h1 data-testid="category-name">{category}</h1>
             </section>
 
