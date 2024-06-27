@@ -1,1 +1,176 @@
 /* HOME PAGE STYLES */
+
+#hero {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 650px;
+
+    picture {
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+    .cs-text {
+        position: absolute;
+
+        h1 {
+            color: white;
+            font-size: 36px;
+            letter-spacing: 1.29px;
+            margin-top: 16px;
+        }
+
+        .new {
+            color: var(--grey-300);
+            margin-top: 0;
+        }
+
+        .cs-button {
+            margin: auto;
+        }
+    }
+}
+
+
+/* featured section */
+.home-featured {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h2 {
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    li {
+
+        border-radius: 8px;
+
+        // first product
+        &:nth-of-type(1) {
+            background-image: url("/src/assets/images/home/desktop/pattern-circles.svg"), linear-gradient(var(--primary), var(--primary));
+            background-size: contain;
+            background-position: top;
+            background-repeat: no-repeat;
+            height: 600px;
+            padding: 55px 24px;
+
+
+            picture {
+                margin: auto;
+
+                img {
+                    height: 207px;
+                    width: auto;
+                }
+            }
+
+            .cs-text {
+                color: white;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                h2 {
+                    font-size: 36px;
+                    letter-spacing: 1.29px;
+
+                }
+
+                p {
+                    color: white;
+                }
+
+                .cs-button {
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+
+        // second product
+        &:nth-of-type(2) {
+            position: relative;
+            // height: 320px;
+            display: flex;
+            align-items: center;
+            padding-left: 24px;
+            padding-top: 101px;
+            padding-bottom: 101px;
+
+
+            picture {
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+
+            }
+
+            .cs-text {
+                h2 {
+                    margin-top: 0;
+                }
+
+                .cs-button {
+                    background-color: transparent;
+                    color: black;
+                    border: 1px solid;
+                }
+            }
+
+        }
+
+        // third product
+        &:nth-of-type(3) {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+
+            picture {
+                img {
+                    border-radius: 8px;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .cs-text {
+                // height: 200px;
+                background-color: var(--grey-200);
+                padding-left: 24px;
+                padding-top: 41px;
+                padding-bottom: 41px;
+
+                .cs-button {
+                    background-color: transparent;
+                    color: black;
+                    border: 1px solid;
+                }
+
+            }
+        }
+    }
+}
