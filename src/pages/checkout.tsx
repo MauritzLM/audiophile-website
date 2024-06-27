@@ -23,7 +23,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
 
     // scroll to top
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo({top: 0, behavior: "smooth"});
     }, [])
 
 

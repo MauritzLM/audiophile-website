@@ -22,7 +22,7 @@ function Product({ fetchedProducts, addToCart }: productProps) {
     // if product not in state then fetch it and update state
     useEffect(() => {
         // scroll top top
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: "smooth"});
 
         // function to fetch product
         async function fetchProduct() {

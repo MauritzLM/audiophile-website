@@ -4,6 +4,7 @@ import ProductCardShort from "../components/products/productCardShort"
 import { item, fetchedItems } from "../types"
 import Categories from "../components/products/categories"
 import About from "../components/about"
+import "/src/assets/sass/category.scss"
 
 interface categoryProps {
     fetchedProducts: fetchedItems,
@@ -15,7 +16,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
 
     useEffect(() => {
         // scroll to top
-        window.scrollTo(0, 0);
+        window.scrollTo({top: 0, behavior: "smooth"});
 
         // function to fetch category in params
         async function fetchCategory() {
@@ -44,7 +45,9 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
 
     return (
         <>
-            <h1 data-testid="category-name">{category} page</h1>
+            <section id="hero">
+                <h1 data-testid="category-name">{category}</h1>
+            </section>
 
             {/* list of products */}
             <ul>
