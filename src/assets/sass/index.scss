@@ -8,6 +8,8 @@
     --grey-200: #f1f1f1;
     --grey-300: #979797;
     --grey-900: #101010;
+
+    --navBackground: #1a1919;
 }
 
 // FONTS
@@ -129,7 +131,7 @@ p {
 // HEADER / NAV STYLES
 #cs-navigation {
     width: 100vw;
-    background-color: black;
+    background-color: var(--navBackground);
     position: fixed;
     top: 0;
     z-index: 100;
