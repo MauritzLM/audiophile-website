@@ -44,7 +44,7 @@ function CartQuantityInput({ product, cart, updateCart }: cartQuantityInputProps
 
     return (
         <>
-            <label htmlFor="cart-quantity">quantity
+            <label className="quantity-input" htmlFor="cart-quantity">
                 {/* remove button */}
                 <button className="remove-btn" onClick={() => updateQuantity("remove")}>-</button>
 
