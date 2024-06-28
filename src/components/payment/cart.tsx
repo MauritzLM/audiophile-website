@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
-import { item } from "../../types";
-import CartQuantityInput from "./cartQuantityInput";
+import { Link } from "react-router-dom"
+import { item } from "../../types"
+import CartQuantityInput from "./cartQuantityInput"
+import "/src/assets/sass/components/cart.scss"
 
 interface cartProps {
   cart: item[],
@@ -34,10 +35,12 @@ function Cart({ cart, updateCart, clearCart, viewCart }: cartProps) {
     <>
       <div className={viewCart ? "cart-wrapper" : "hidden"}>
         <div className="cart">
-          {/* remove all */}
-          <button onClick={clearCart}>Remove all</button>
 
-          <h2>Cart ({cart.length})</h2>
+          <div>
+            <h2>Cart ({cart.length})</h2>
+            {/* remove all */}
+            <button className="remove-all" onClick={clearCart}>Remove all</button>
+          </div>
 
           <ul>
             {/* for each unique item */}
@@ -48,11 +51,18 @@ function Cart({ cart, updateCart, clearCart, viewCart }: cartProps) {
               }
               else {
                 compareArr.push(item.name)
+                // remove last word from name string
+                const nameArr = item.name.split(" ");
+                nameArr.pop();
 
                 return <li key={item.name}>
-                  {/* image* name price */}
-                  <h4>{item.name}</h4>
-                  <p>{item.price}</p>
+                  {/* image name price */}
+
+                  <div>
+                    <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                    <h4>{nameArr.join(" ")}</h4>
+                    <p>$ {item.price}</p>
+                  </div>
 
                   <CartQuantityInput product={item} cart={cart} updateCart={updateCart} />
                 </li>
@@ -61,11 +71,11 @@ function Cart({ cart, updateCart, clearCart, viewCart }: cartProps) {
 
           </ul>
 
-          {/* display total* */}
-          <div><span>Price</span><span data-testid="price">$ {cartSorted.reduce((accumulator, item) => accumulator + item.price, 0)}</span></div>
+          {/* display total */}
+          <div className="cart-total"><span>total</span><span data-testid="price">$ {cartSorted.reduce((accumulator, item) => accumulator + item.price, 0)}</span></div>
 
-          {/* checkout link* */}
-          <Link to="/checkout">Checkout</Link>
+          {/* checkout link */}
+          <Link className="cs-button" to="/checkout">Checkout</Link>
         </div>
       </div>
     </>
