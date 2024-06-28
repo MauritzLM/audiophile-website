@@ -65,6 +65,7 @@ body {
 
 main {
     padding-top: 90px;
+    position: relative;
 }
 
 // hidden class
@@ -75,6 +76,10 @@ main {
 h1,
 h2 {
     text-transform: uppercase;
+}
+
+h2 {
+    letter-spacing: 1.29px;
 }
 
 // new product text
@@ -368,7 +373,7 @@ footer {
     .sitemap {
         display: flex;
         flex-direction: column;
-        gap: 16px;   
+        gap: 16px;
 
         a {
             color: white;

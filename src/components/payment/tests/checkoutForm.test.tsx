@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import '@testing-library/jest-dom';
 import userEvent from "@testing-library/user-event";
@@ -118,7 +118,7 @@ describe("test checkout form", () => {
         await user.click(submitButton);
 
         await screen.findAllByRole("alert");
-
+        
         expect(screen.findByText("wrong format")).toBeInTheDocument();
         expect(screen.getAllByRole).toHaveLength(2);
 

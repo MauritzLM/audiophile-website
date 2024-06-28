@@ -65,6 +65,6 @@ export interface error {
     location: string
 }
 
-export interface errorObj {
-    [key: string]: string
+export interface formObj {
+    [key: string]: string,
 }

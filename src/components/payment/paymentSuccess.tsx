@@ -25,7 +25,6 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
 
   const cartSorted = cart.sort((a, b) => b.price - a.price);
 
-  // get grandtotal*
   const total = cartSorted.reduce((accumulator, item) => accumulator + item.price, 0);
 
   return (

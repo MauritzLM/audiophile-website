@@ -1,5 +1,5 @@
 
-import './assets/sass/index.scss'
+import '/src/assets/sass/index.scss'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/header'
 import Footer from './components/footer'
