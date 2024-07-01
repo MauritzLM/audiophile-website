@@ -131,14 +131,14 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
                         <div>
                             <span className="payment-label">Payment method</span>
 
-                            <div className="radio-group">
+                            <div className={paymentMethod === "e-money" ? "cs-active radio-group" : "radio-group"}>
                                 <label htmlFor="e-money">E-money</label>
-                                <input className={paymentMethod === "e-money" ? "cs-active" : ""} name="method" id="e-money" type="radio" value="e-money" onChange={(e) => changeOption(e)} checked={paymentMethod === "e-money"} />
+                                <input name="method" id="e-money" type="radio" value="e-money" onChange={(e) => changeOption(e)} checked={paymentMethod === "e-money"} />
                             </div>
 
-                            <div className="radio-group">
+                            <div className={paymentMethod === "cash" ? "cs-active radio-group" : "radio-group"}>
                                 <label htmlFor="cash">Cash on delivery</label>
-                                <input className={paymentMethod === "cash" ? "cs-active" : ""} name="method" id="cash" type="radio" value="cash" onChange={(e) => changeOption(e)} checked={paymentMethod === "cash"} />
+                                <input name="method" id="cash" type="radio" value="cash" onChange={(e) => changeOption(e)} checked={paymentMethod === "cash"} />
                             </div>
 
 
@@ -171,8 +171,9 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
                 </div>
 
                 <div className="summary-wrapper">
+                    <h3>Summary</h3>
                     <OrderSummary cart={cart} />
-                    <button type="submit" disabled={paymentSuccess}>Continue & Pay</button>
+                    <button className="cs-button" type="submit" disabled={paymentSuccess}>Continue & Pay</button>
                 </div>
             </form>
         </>
