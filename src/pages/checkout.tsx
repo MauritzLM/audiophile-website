@@ -3,6 +3,7 @@ import { item } from "../types"
 import CheckoutForm from "../components/payment/checkoutForm"
 import { useState, useEffect } from "react"
 import PaymentSuccess from "../components/payment/paymentSuccess"
+import "/src/assets/sass/checkout.scss"
 
 interface checkoutProps {
     cart: item[],
@@ -23,22 +24,24 @@ function Checkout({ cart, clearCart }: checkoutProps) {
 
     // scroll to top
     useEffect(() => {
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [])
 
 
     if (paymentSuccess) {
         return (
-            // render checkout form*
-            // payment succes component z-index* background overlay*
-            <PaymentSuccess cart={cart} clearCart={clearCart}/>
+            <>
+                <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
+
+                <PaymentSuccess cart={cart} clearCart={clearCart} />
+            </>
         )
     }
 
     if (!cart.length) {
         return (
             <>
-                <Link to="/">go back</Link>
+                <Link className="go-back" to="/">go back</Link>
                 <p>cart is empty</p>
             </>
         )
@@ -46,7 +49,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
 
     return (
         <>
-            <Link to="/">go back</Link>
+            <Link className="go-back" to="/">go back</Link>
             {/* form component* */}
 
             <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
