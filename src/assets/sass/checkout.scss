@@ -34,6 +34,12 @@ main {
             border: none;
             padding: 0;
             margin: 0;
+            margin-top: 32px;
+
+            label,
+            input {
+                cursor: pointer;
+            }
 
             legend {
                 color: var(--primary);
@@ -49,6 +55,7 @@ main {
                 flex-direction: column;
                 gap: 9px;
                 margin-bottom: 24px;
+                position: relative;
 
                 label {
                     font-size: 12px;
@@ -58,14 +65,22 @@ main {
                 }
 
                 input {
+                    appearance: none;
                     border-radius: 8px;
                     padding: 18px 24px;
                     border: 1px solid var(--grey-250);
                     font-size: 14px;
                     font-weight: 700;
+                    background-color: white;
+                    outline: none;
+
+                    &:focus {
+                        border-color: var(--primary);
+                    }
                 }
             }
 
+            // payment section
             .payment-label {
                 font-size: 12px;
                 font-weight: bold;
@@ -75,6 +90,7 @@ main {
                 display: block;
             }
 
+            // radio buttons
             .radio-group {
                 border-radius: 8px;
                 padding: 18px 24px;
@@ -119,6 +135,36 @@ main {
             }
 
             .payment-method {
+                margin: 32px 0;
+            }
+
+            // active input
+            .cs-active {
+                border-color: var(--primary);
+            }
+
+            // errors
+            .error {
+                .error-msg {
+                    float: right;
+                    color: var(--error);
+                    font-size: 12px;
+                    font-weight: 500;
+                    position: absolute;
+                    right: 0;
+                }
+
+                label {
+                    color: var(--error);
+                }
+
+                input {
+                    border-color: var(--error);
+                    outline: 1px solid var(--error);
+                }
+            }
+
+            .payment-method {
                 p {
                     font-weight: 500;
                     font-size: 15px;
@@ -127,6 +173,7 @@ main {
         }
     }
 
+    // order summary
     .summary-wrapper {
         background-color: white;
         border-radius: 8px;
@@ -184,6 +231,7 @@ main {
             }
         }
 
+        // price amounts
         .amount-calculations,
         .grand-total {
             text-transform: uppercase;
@@ -226,6 +274,7 @@ main {
             }
         }
 
+        // submit button
         .cs-button {
             margin: 32px 0;
             width: 100%;
