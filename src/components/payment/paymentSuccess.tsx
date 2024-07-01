@@ -32,7 +32,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
       <div className="payment-success-wrapper">
         <div className="payment-success">
           {/* checkmark */}
-          <img src="/src/assets/images/checkout/icon-order-confirmation.svg" alt="" aria-hidden="true" decoding="async" height="64px" width="64px"/>
+          <img src="/src/assets/images/checkout/icon-order-confirmation.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" height="64px" width="64px"/>
 
           <h2>Thank you <br /> for your order</h2>
           <p className="cs-text">You will receive an email confirmation shortly.</p>
