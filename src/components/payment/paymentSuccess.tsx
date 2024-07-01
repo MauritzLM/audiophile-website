@@ -31,10 +31,14 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
     <>
       <div className="payment-success-wrapper">
         <div className="payment-success">
-          <h2>Thank you for your order</h2>
-          <p>email confirmation</p>
-          <div>
-            <div className="cart-contents">
+          {/* checkmark */}
+          <img src="/src/assets/images/checkout/icon-order-confirmation.svg" alt="" aria-hidden="true" decoding="async" height="64px" width="64px"/>
+
+          <h2>Thank you <br /> for your order</h2>
+          <p className="cs-text">You will receive an email confirmation shortly.</p>
+
+          <div className="order-summary">
+            <ul className="cart-contents">
               {cartSorted.map((item, index) => {
 
                 // if item not unique
@@ -53,12 +57,19 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                     if (a.name === item.name) quantity++
                   })
 
+                  // remove last word from name string
+                  const nameArr = item.name.split(" ");
+                  nameArr.pop();
+
                   // first item (highest price)
                   if (index === 0) {
                     return <li key={item.name}>
                       {/* image* name price */}
-                      <h4>{item.name}</h4>
-                      <p>{item.price}</p>
+                      <div>
+                        <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                        <h4>{nameArr.join(" ")}</h4>
+                        <p>{item.price}</p>
+                      </div>
 
                       <span>x{quantity}</span>
                     </li>
@@ -67,8 +78,11 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                   // remaining items with hidden class
                   return <li className={expandedView ? "" : "hidden"} key={item.name}>
                     {/* image* name price */}
-                    <h4>{item.name}</h4>
-                    <p>{item.price}</p>
+                    <div>
+                      <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                      <h4>{nameArr.join(" ")}</h4>
+                      <p>{item.price}</p>
+                    </div>
 
                     <span>x{quantity}</span>
                   </li>
@@ -77,18 +91,18 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
 
               {/* other cart items view toggle if more than 1 unique items */}
               {Object.keys(compareObj).length > 1 && (
-                <button data-testid="expand" onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
+                <button className="view-select-button" data-testid="expand" onClick={handleExpandedView}>{expandedView ? "view less" : `and ${Object.keys(compareObj).length - 1} other item(s)`}</button>
               )}
 
-            </div>
-            <div className="total">
+            </ul>
+            <div className="grand-total">
               <span>Grand total</span>
               <p>$ {total + 50}</p>
             </div>
           </div>
 
           {/* back to home link */}
-          <Link onClick={clearCart} to="/">back to home</Link>
+          <Link className="cs-button" onClick={clearCart} to="/">back to home</Link>
         </div>
       </div>
     </>
