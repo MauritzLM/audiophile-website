@@ -31,9 +31,11 @@ function Checkout({ cart, clearCart }: checkoutProps) {
     if (paymentSuccess) {
         return (
             <>
-                <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
+                <div className="content-wrapper">
+                    <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
 
-                <PaymentSuccess cart={cart} clearCart={clearCart} />
+                    <PaymentSuccess cart={cart} clearCart={clearCart} />
+                </div>
             </>
         )
     }
@@ -41,18 +43,22 @@ function Checkout({ cart, clearCart }: checkoutProps) {
     if (!cart.length) {
         return (
             <>
-                <Link className="go-back" to="/">go back</Link>
-                <p>cart is empty</p>
+                <div className="content-wrapper">
+                    <Link className="go-back" to="/">go back</Link>
+                    <p>cart is empty</p>
+                </div>
             </>
         )
     }
 
     return (
         <>
-            <Link className="go-back" to="/">go back</Link>
-            {/* form component* */}
+            <div className="content-wrapper">
+                <Link className="go-back" to="/">go back</Link>
+                {/* form component* */}
 
-            <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
+                <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
+            </div>
         </>
     )
 }

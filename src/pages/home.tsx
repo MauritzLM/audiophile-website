@@ -14,7 +14,7 @@ function Home({ featured }: homeProps) {
 
     // scroll to top
     useEffect(() => {
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [])
 
     return (
@@ -39,37 +39,54 @@ function Home({ featured }: homeProps) {
                 </div>
             </section>
 
-            {/* category links */}
-            <Categories />
+            <div className="content-wrapper">
+                {/* category links */}
+                <Categories />
 
 
-            {/* display featured items */}
-            <ul className="home-featured">
-                {featured?.map((item: item, index: number) => {
-                    // three separate returns*
-                    // if item 1
-                    if (index === 0) {
+                {/* display featured items */}
+                <ul className="home-featured">
+                    {featured?.map((item: item, index: number) => {
+                        // three separate returns*
+                        // if item 1
+                        if (index === 0) {
+                            return <li key={item.name}>
+                                {/* image, p, button */}
+                                <picture>
+                                    <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.png`} />
+                                    <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.png`} />
+                                    <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.png`} />
+                                    <img src={`/src/assets/images/home/desktop/image-${item.slug}.png`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+
+                                </picture>
+
+                                <div className="cs-text">
+                                    <h2>{item.slug.replace("-", " ")}</h2>
+                                    <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
+                                    <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
+                                </div>
+                            </li>
+                        }
+
+                        // if item 2
+                        if (index === 1) {
+                            <li key={item.name}>
+                                <picture>
+                                    <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />
+                                    <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.jpg`} />
+                                    <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} />
+                                    <img src={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                </picture>
+
+                                <div className="cs-text">
+                                    <h2>{item.slug.replace("-", " ")}</h2>
+                                    <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
+                                </div>
+                            </li>
+                        }
+
+                        // if item 3
                         return <li key={item.name}>
-                            {/* image, p, button */}
-                            <picture>
-                                <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.png`} />
-                                <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.png`} />
-                                <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.png`} />
-                                <img src={`/src/assets/images/home/desktop/image-${item.slug}.png`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
-
-                            </picture>
-
-                            <div className="cs-text">
-                                <h2>{item.name}</h2>
-                                <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                                <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
-                            </div>
-                        </li>
-                    }
-
-                    // if item 2
-                    if (index === 1) {
-                        <li key={item.name}>
                             <picture>
                                 <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />
                                 <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.jpg`} />
@@ -78,32 +95,18 @@ function Home({ featured }: homeProps) {
                             </picture>
 
                             <div className="cs-text">
-                                <h2>{item.name}</h2>
+                                <h2>{item.slug.replace("-", " ")}</h2>
                                 <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
                             </div>
                         </li>
-                    }
 
-                    // if item 3
-                    return <li key={item.name}>
-                        <picture>
-                            <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />
-                            <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.jpg`} />
-                            <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} />
-                            <img src={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
-                        </picture>
+                    })}
+                </ul>
 
-                        <div className="cs-text">
-                            <h2>{item.name}</h2>
-                            <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
-                        </div>
-                    </li>
+                {/* about component */}
+                <About />
 
-                })}
-            </ul>
-
-            {/* about component */}
-            <About />
+            </div>
         </>
     )
 }

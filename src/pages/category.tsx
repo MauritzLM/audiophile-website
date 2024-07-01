@@ -16,7 +16,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
 
     useEffect(() => {
         // scroll to top
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         // function to fetch category in params
         async function fetchCategory() {
@@ -49,19 +49,21 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
                 <h1 data-testid="category-name">{category}</h1>
             </section>
 
-            {/* list of products */}
-            <ul>
-                {fetchedProducts[category!]?.map((item: item, index: number) => {
-                    return <ProductCardShort key={item.name} index={index} item={item} />
-                })}
-            </ul>
+            <div className="content-wrapper">
+                {/* list of products */}
+                <ul>
+                    {fetchedProducts[category!]?.map((item: item, index: number) => {
+                        return <ProductCardShort key={item.name} index={index} item={item} />
+                    })}
+                </ul>
 
-            {/* categories component */}
-            <Categories />
+                {/* categories component */}
+                <Categories />
 
 
-            {/* about component */}
-            <About />
+                {/* about component */}
+                <About />
+            </div>
         </>
     )
 }

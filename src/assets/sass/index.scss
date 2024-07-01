@@ -6,10 +6,13 @@
 
     --grey-100: #fafafa;
     --grey-200: #f1f1f1;
+    --grey-250: #cfcfcf;
     --grey-300: #979797;
     --grey-900: #101010;
 
     --navBackground: #1a1919;
+
+    --error: #cd2c2c;
 }
 
 // FONTS
@@ -61,10 +64,16 @@ html {
 
 body {
     margin: 0;
+    font-size: 15px;
 }
 
 main {
     padding-top: 90px;
+    position: relative;
+}
+
+.content-wrapper {
+    padding: 65px 24px;
     position: relative;
 }
 
@@ -88,6 +97,16 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 10px;
     color: var(--primary);
+}
+
+/* go back link */
+.go-back {
+    text-transform: capitalize;
+    color: var(--grey-300);
+    font-size: 15px;
+    font-weight: 500;
+    position: absolute;
+    top: 16px;
 }
 
 /* buttons */

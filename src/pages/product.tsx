@@ -7,6 +7,7 @@ import Categories from "../components/products/categories"
 import About from "../components/about"
 import { useEffect, useState } from "react"
 import "/src/assets/sass/product.scss"
+import { Link } from "react-router-dom"
 
 interface productProps {
     fetchedProducts: fetchedItems,
@@ -22,7 +23,7 @@ function Product({ fetchedProducts, addToCart }: productProps) {
     // if product not in state then fetch it and update state
     useEffect(() => {
         // scroll top top
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         // function to fetch product
         async function fetchProduct() {
@@ -53,22 +54,25 @@ function Product({ fetchedProducts, addToCart }: productProps) {
 
     return (
         <>
-            {/* go back */}
-            <h1 data-testid="product-name">{product?.name} page</h1>
-            {/* product card full component - update cart && product props */}
-            <ProductCardFull product={product!} addToCart={addToCart} />
+            <div className="content-wrapper">
+                {/* go back */}
+                <Link className="go-back" to={`/${category}`}>Go back</Link>
+                <h1 data-testid="product-name">{product?.name} page</h1>
+                {/* product card full component - update cart && product props */}
+                <ProductCardFull product={product!} addToCart={addToCart} />
 
-            {/* product features */}
-            <ProductFeatures product={product!} />
+                {/* product features */}
+                <ProductFeatures product={product!} />
 
-            {/* other products component */}
-            <OtherProducts product={product!} />
+                {/* other products component */}
+                <OtherProducts product={product!} />
 
-            {/* categories component */}
-            <Categories />
+                {/* categories component */}
+                <Categories />
 
-            {/* about component */}
-            <About />
+                {/* about component */}
+                <About />
+            </div>
         </>
     )
 }
