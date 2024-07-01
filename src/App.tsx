@@ -109,7 +109,7 @@ function App() {
     <>
       <Header handleViewCart={handleViewCart} />
       <main id='main'>
-        <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} viewCart={viewCart} />
+        <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} viewCart={viewCart} handleViewCart={handleViewCart} />
         <Routes>
           <Route path='/' element={<Home featured={featured} />} />
           <Route path='/:category' element={<Category fetchedProducts={fetchedProducts} updateProducts={updateProducts} />} />

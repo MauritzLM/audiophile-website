@@ -7,10 +7,11 @@ interface cartProps {
   cart: item[],
   updateCart: (product: item, quantity: number) => void,
   clearCart: () => void,
-  viewCart: boolean
+  viewCart: boolean,
+  handleViewCart: () => void
 }
 
-function Cart({ cart, updateCart, clearCart, viewCart }: cartProps) {
+function Cart({ cart, updateCart, clearCart, viewCart, handleViewCart }: cartProps) {
 
   // array to keep track of unique items
   const compareArr: string[] = [];
@@ -75,7 +76,7 @@ function Cart({ cart, updateCart, clearCart, viewCart }: cartProps) {
           <div className="cart-total"><span>total</span><span data-testid="price">$ {cartSorted.reduce((accumulator, item) => accumulator + item.price, 0)}</span></div>
 
           {/* checkout link */}
-          <Link className="cs-button" to="/checkout">Checkout</Link>
+          <Link onClick={handleViewCart} className="cs-button" to="/checkout">Checkout</Link>
         </div>
       </div>
     </>
