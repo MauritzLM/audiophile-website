@@ -1,7 +1,122 @@
 /* STYLES FOR THE CHECKOUT PAGE */
 
-/* FORM STYLES */
+/* go back link */
+.go-back {
+    text-transform: capitalize;
+    color: var(--grey-300);
+    font-size: 15px;
+    font-weight: 500;
+}
 
+/* FORM STYLES */
+#checkout-form {
+    .form-wrapper {
+
+        h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        fieldset {
+            border: none;
+
+            legend {
+                color: var(--primary);
+                text-transform: uppercase;
+                font-size: 13px;
+                letter-spacing: .93px;
+                font-weight: 700;
+                margin-bottom: 16px;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+                margin-bottom: 24px;
+
+                label {
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                    letter-spacing: -0.21px;
+                }
+
+                input {
+                    border-radius: 8px;
+                    padding: 18px 24px;
+                    border: 1px solid var(--grey-250);
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+            }
+
+            .payment-label {
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: capitalize;
+                letter-spacing: -0.21px;
+                margin-bottom: 9px;
+                display: block;
+            }
+
+            .radio-group {
+                border-radius: 8px;
+                padding: 18px 24px;
+                border: 1px solid var(--grey-250);
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                label {
+                    font-size: 14px;
+                    font-weight: 700;
+                    letter-spacing: -0.24px;
+                }
+
+                /* radio button */
+                input[type="radio"] {
+                    appearance: none;
+                    order: -1;
+                    margin: 0;
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid var(--grey-300);
+                    border-radius: 50%;
+
+                    &::before {
+                        display: block;
+                        content: " ";
+                        width: 10px;
+                        height: 10px;
+                        background-color: var(--primary);
+                        border-radius: 6px;
+                        transform: translate(4px, 4px) scale(0);
+                        transform-origin: center;
+                        transition: all .2s ease-in;
+                    }
+
+                    &:checked::before {
+                        transform: translate(4px, 4px) scale(1);
+                    }
+                }
+            }
+
+            .payment-method {
+                p {
+                    font-weight: 500;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    // .summary-wrapper {
+
+    // }
+}
 
 /* ORDER SUMMARY */
 
