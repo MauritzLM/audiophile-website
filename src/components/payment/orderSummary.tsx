@@ -6,7 +6,7 @@ interface orderSummaryProps {
 }
 
 function OrderSummary({ cart }: orderSummaryProps) {
-    
+
     // object to keep track of unique items
     const compareObj: { [key: string]: number } = {};
     // sort cart array by price
@@ -16,7 +16,7 @@ function OrderSummary({ cart }: orderSummaryProps) {
 
     return (
         <>
-            <div id="order-summary">
+            <ul id="order-summary">
                 {/* items */}
                 {cartSorted.map((item) => {
 
@@ -36,25 +36,36 @@ function OrderSummary({ cart }: orderSummaryProps) {
                             if (a.name === item.name) quantity++
                         })
 
+                        // remove last word from name string
+                        const nameArr = item.name.split(" ");
+                        nameArr.pop();
+
                         return <li key={item.name}>
-                            {/* image* name price */}
-                            <h4>{item.name}</h4>
-                            <p>{item.price}</p>
+                            {/* image name price */}
+                            <div>
+                                <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                                <h4>{nameArr.join(" ")}</h4>
+                                <p>$ {item.price}</p>
+                            </div>
 
                             <span data-testid="quantity">x{quantity}</span>
                         </li>
                     }
                 })}
+            </ul>
+            <div className="amount-calculations">
                 {/* total */}
                 <div><span>Total</span> <span>$ {total}</span></div>
                 {/* shipping */}
                 <div><span>Shipping</span> <span>$ 50</span></div>
                 {/* vat * .2 */}
                 <div><span>VAT (included)</span> <span>$ {Math.round(total * 0.2)}</span></div>
+            </div>
+            <div className="grand-total">
                 {/* grand total */}
                 <div><span>Grand Total</span> <span>$ {total + 50}</span></div>
-
             </div>
+
         </>
     )
 }
