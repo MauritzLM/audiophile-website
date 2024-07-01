@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import "/src/assets/sass/product.scss"
 import { Link } from "react-router-dom"
 
+
 interface productProps {
     fetchedProducts: fetchedItems,
     addToCart: (product: item, quantity: number) => void
@@ -57,7 +58,7 @@ function Product({ fetchedProducts, addToCart }: productProps) {
             <div className="content-wrapper">
                 {/* go back */}
                 <Link className="go-back" to={`/${category}`}>Go back</Link>
-                <h1 data-testid="product-name">{product?.name} page</h1>
+                <h1 data-testid="product-name">{product?.name}</h1>
                 {/* product card full component - update cart && product props */}
                 <ProductCardFull product={product!} addToCart={addToCart} />
 

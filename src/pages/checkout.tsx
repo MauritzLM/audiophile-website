@@ -13,14 +13,10 @@ interface checkoutProps {
 function Checkout({ cart, clearCart }: checkoutProps) {
     const [paymentSuccess, setPaymentSuccess] = useState(false);
     // implement go back*
-    // payment success state* - pass to checkout form to update state*
-
+    
     const handlePayment = function () {
         setPaymentSuccess(true)
     }
-
-    // render checkout form and order summary*
-    // if paid render payment success component*
 
     // scroll to top
     useEffect(() => {
