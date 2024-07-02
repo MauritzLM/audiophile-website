@@ -13,7 +13,7 @@ interface checkoutProps {
 function Checkout({ cart, clearCart }: checkoutProps) {
     const [paymentSuccess, setPaymentSuccess] = useState(false);
     // implement go back*
-    
+
     const handlePayment = function () {
         setPaymentSuccess(true)
     }
@@ -27,7 +27,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
     if (paymentSuccess) {
         return (
             <>
-                <div className="content-wrapper">
+                <div className="checkout-wrapper">
                     <CheckoutForm cart={cart} handlePayment={handlePayment} paymentSuccess={paymentSuccess} />
 
                     <PaymentSuccess cart={cart} clearCart={clearCart} />
@@ -39,7 +39,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
     if (!cart.length) {
         return (
             <>
-                <div className="content-wrapper">
+                <div className="checkout-wrapper">
                     <Link className="go-back" to="/">go back</Link>
                     <p>cart is empty</p>
                 </div>
@@ -49,7 +49,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
 
     return (
         <>
-            <div className="content-wrapper">
+            <div className="checkout-wrapper">
                 <Link className="go-back" to="/">go back</Link>
                 {/* form component* */}
 
