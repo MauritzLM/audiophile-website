@@ -9,6 +9,11 @@ interface productCardShortProps {
 
 function ProductCardShort({ item, index }: productCardShortProps) {
     const { category } = useParams()
+
+    // format item name -> split name from category
+    const nameArr = item.name.split(" ");
+    const categoryName = nameArr.pop();
+
     return (
         <>
             <li className="product-card-short" key={`${category}-${index}`}>
@@ -25,7 +30,7 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 {item.new ? <p className="new" data-testid="new">new product</p> : ''}
 
                 {/* name and description */}
-                <h2>{item.name}</h2>
+                <h2>{nameArr.join(" ")}<br/> {categoryName}</h2>
                 <p>{item.description}</p>
 
                 {/* button */}
