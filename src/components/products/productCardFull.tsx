@@ -24,7 +24,7 @@ function ProductCardFull({ product, addToCart }: productCardFullProps) {
                 {product?.new ? <p className="new" data-testid="new">new product</p> : ''}
 
                 {/* name */}
-                <h2>{product?.name}</h2>
+                <h1>{product?.name}</h1>
 
                 {/* description */}
                 <p className="description">{product?.description}</p>

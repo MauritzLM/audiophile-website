@@ -64,11 +64,11 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                   // first item (highest price)
                   if (index === 0) {
                     return <li key={item.name}>
-                      {/* image* name price */}
+                      {/* image name price */}
                       <div>
                         <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                         <h4>{nameArr.join(" ")}</h4>
-                        <p>{item.price}</p>
+                        <p>$ {item.price}</p>
                       </div>
 
                       <span>x{quantity}</span>
@@ -77,11 +77,11 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
 
                   // remaining items with hidden class
                   return <li className={expandedView ? "" : "hidden"} key={item.name}>
-                    {/* image* name price */}
+                    {/* image name price */}
                     <div>
                       <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                       <h4>{nameArr.join(" ")}</h4>
-                      <p>{item.price}</p>
+                      <p>$ {item.price}</p>
                     </div>
 
                     <span>x{quantity}</span>
