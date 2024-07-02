@@ -16,7 +16,7 @@ describe("header test", () => {
         render(<BrowserRouter><Header handleViewCart={handleViewCart} /></BrowserRouter>);
 
         const user = userEvent.setup();
-        const cartButton = screen.getByRole("button");
+        const cartButton = screen.getByTestId("view-cart");
 
         await user.click(cartButton);
 
