@@ -67,14 +67,17 @@ body {
     font-size: 15px;
 }
 
-main {
-    padding-top: 90px;
+#main {
+    // padding-top: 90px;
     position: relative;
 }
 
 .content-wrapper {
-    padding: 65px 24px;
+    padding: 65px 24px 0 24px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
 }
 
 // hidden class
@@ -149,6 +152,14 @@ p {
     font-size: 15px;
     line-height: 25px;
     color: var(--grey-300);
+}
+
+picture {
+    display: block;
+
+    img {
+        display: block;
+    }
 }
 
 
@@ -281,12 +292,7 @@ p {
             justify-content: center;
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
-            padding: 32px 24px;
-
-            .category-image {
-                height: 104px;
-                width: auto;
-            }
+            padding: 84px 24px 35px 24px;
         }
 
 
@@ -347,10 +353,13 @@ p {
 
 /* ABOUT SECTION */
 #about {
+    margin-bottom: 120px;
+
     img {
         border-radius: 8px;
         width: 100%;
         height: auto;
+        margin-bottom: 40px;
     }
 
     h2 {
@@ -366,6 +375,8 @@ p {
 
     p {
         text-align: center;
+        margin-top: 32px;
+        margin-bottom: 0;
     }
 }
 
@@ -374,8 +385,7 @@ footer {
     background-color: black;
     text-align: center;
     position: relative;
-    padding-top: 56px;
-    padding-bottom: 38px;
+    padding: 56px 24px 38px 24px;
     display: grid;
     grid-template-columns: 1fr;
     gap: 48px;
@@ -392,7 +402,7 @@ footer {
     .sitemap {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 24px;
 
         a {
             color: white;

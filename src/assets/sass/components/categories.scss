@@ -8,7 +8,6 @@
     gap: 60px;
     align-items: center;
     justify-content: center;
-    padding: 32px 24px;
 
     .category {
         background-color: var(--grey-200);
@@ -22,12 +21,12 @@
 
         .category-image {
             position: absolute;
-            top: -35px;
+            top: -45px;
             left: 0;
             right: 0;
             margin-left: auto;
             margin-right: auto;
-            height: 104px;
+            height: 140px;
             width: auto;
 
         }
@@ -45,9 +44,10 @@
             color: var(--grey-300);
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 13px;
             font-weight: 700;
             display: flex;
-            gap: 18px;
+            gap: 14px;
             justify-content: center;
             align-items: center;
         }
