@@ -51,7 +51,7 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
 
             <div className="content-wrapper">
                 {/* list of products */}
-                <ul>
+                <ul className="card-wrapper">
                     {fetchedProducts[category!]?.map((item: item, index: number) => {
                         return <ProductCardShort key={item.name} index={index} item={item} />
                     })}

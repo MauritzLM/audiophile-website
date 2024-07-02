@@ -56,17 +56,18 @@ function Product({ fetchedProducts, addToCart }: productProps) {
     return (
         <>
             <div className="content-wrapper">
-                {/* go back */}
-                <Link className="go-back" to={`/${category}`}>Go back</Link>
-                <h1 data-testid="product-name">{product?.name}</h1>
-                {/* product card full component - update cart && product props */}
-                <ProductCardFull product={product!} addToCart={addToCart} />
+                <div className="product-wrapper">
+                    {/* go back */}
+                    <Link className="go-back" to={`/${category}`}>Go back</Link>
+                    {/* product card full component - update cart && product props */}
+                    <ProductCardFull product={product!} addToCart={addToCart} />
 
-                {/* product features */}
-                <ProductFeatures product={product!} />
+                    {/* product features */}
+                    <ProductFeatures product={product!} />
 
-                {/* other products component */}
-                <OtherProducts product={product!} />
+                    {/* other products component */}
+                    <OtherProducts product={product!} />
+                </div>
 
                 {/* categories component */}
                 <Categories />
