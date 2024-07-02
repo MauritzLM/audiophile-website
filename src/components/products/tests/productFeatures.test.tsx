@@ -11,7 +11,9 @@ describe("product features", () => {
     it("rendering", () => {
         render(<ProductFeatures product={test_item}/>);
 
-        expect(screen.getByRole("heading").textContent).toMatch(/Features/);
+        const headings = screen.getAllByRole("heading");
+
+        expect(headings[0].textContent).toMatch(/Features/);
         // renders description
         expect(screen.getByTestId("description")).toBeInTheDocument();
         // renders all box contents
