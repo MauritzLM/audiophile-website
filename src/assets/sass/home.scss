@@ -46,6 +46,15 @@
     }
 }
 
+/* content layout */
+.home-content-wrapper {
+    padding: 92px 24px 0 24px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
 
 /* FEATURED SECTION */
 .home-featured {

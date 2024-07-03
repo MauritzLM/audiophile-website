@@ -39,7 +39,7 @@ function Home({ featured }: homeProps) {
                 </div>
             </section>
 
-            <div className="content-wrapper">
+            <div className="home-content-wrapper">
                 {/* category links */}
                 <Categories />
 
