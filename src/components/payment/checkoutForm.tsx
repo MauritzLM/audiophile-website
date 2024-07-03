@@ -131,15 +131,15 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
                         <div>
                             <span className="payment-label">Payment method</span>
 
-                            <div className={paymentMethod === "e-money" ? "cs-active radio-group" : "radio-group"}>
-                                <label htmlFor="e-money">E-money</label>
+                            <label htmlFor="e-money" className={paymentMethod === "e-money" ? "cs-active radio-group" : "radio-group"}>
+                                E-money
                                 <input name="method" id="e-money" type="radio" value="e-money" onChange={(e) => changeOption(e)} checked={paymentMethod === "e-money"} />
-                            </div>
+                            </label>
 
-                            <div className={paymentMethod === "cash" ? "cs-active radio-group" : "radio-group"}>
-                                <label htmlFor="cash">Cash on delivery</label>
+                            <label htmlFor="cash" className={paymentMethod === "cash" ? "cs-active radio-group" : "radio-group"}>
+                                Cash on delivery
                                 <input name="method" id="cash" type="radio" value="cash" onChange={(e) => changeOption(e)} checked={paymentMethod === "cash"} />
-                            </div>
+                            </label>
 
 
                             {/* payment method conditional rendering */}
