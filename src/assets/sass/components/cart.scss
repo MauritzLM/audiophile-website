@@ -36,6 +36,10 @@
             .remove-all {
                 color: var(--grey-300);
                 text-decoration: underline;
+
+                &:hover {
+                    color: var(--primary);
+                }
             }
         }
 

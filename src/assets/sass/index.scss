@@ -8,6 +8,7 @@
     --grey-200: #f1f1f1;
     --grey-250: #cfcfcf;
     --grey-300: #979797;
+    --grey-400: #4c4c4c;
     --grey-900: #101010;
 
     --navBackground: #1a1919;
@@ -110,6 +111,10 @@ h2 {
     font-weight: 500;
     position: absolute;
     top: 16px;
+
+    &:hover {
+        color: var(--primary);
+    }
 }
 
 /* buttons */
@@ -132,6 +137,10 @@ button {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
+
+    &:hover {
+        background-color: var(--primaryLight);
+    }
 }
 
 input {
@@ -344,6 +353,10 @@ picture {
                         letter-spacing: 2px;
                         font-size: 13px;
                         font-weight: 700;
+
+                        &:hover {
+                            color: var(--primary);
+                        }
                     }
                 }
             }
@@ -410,6 +423,10 @@ footer {
             font-size: 13px;
             font-weight: 700;
             letter-spacing: 2px;
+
+            &:hover {
+                color: var(--primary);
+            }
         }
     }
 
@@ -419,5 +436,13 @@ footer {
         gap: 16px;
         justify-content: center;
         align-items: center;
+
+        svg {
+            &:hover {
+                path {
+                    fill: var(--primary);
+                }
+            }
+        }
     }
 }

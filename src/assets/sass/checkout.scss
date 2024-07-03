@@ -74,8 +74,11 @@
                     background-color: white;
                     outline: none;
 
-                    &:focus {
+                    &:focus,
+                    &:hover {
                         border-color: var(--primary);
+
+                        caret-color: var(--primary);
                     }
                 }
             }
@@ -99,6 +102,10 @@
                 display: flex;
                 align-items: center;
                 gap: 16px;
+
+                &:hover {
+                    border-color: var(--primary);
+                }
 
                 label {
                     font-size: 14px;

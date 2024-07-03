@@ -115,6 +115,10 @@
                 .cs-button {
                     background-color: black;
                     color: white;
+
+                    &:hover {
+                        background-color: var(--grey-400);
+                    }
                 }
             }
         }
@@ -160,6 +164,11 @@
                     background-color: transparent;
                     color: black;
                     border: 1px solid;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
                 }
             }
 
@@ -193,6 +202,11 @@
                     background-color: transparent;
                     color: black;
                     border: 1px solid;
+
+                    &:hover {
+                        background-color: black;
+                        color: white;
+                    }
                 }
 
             }
