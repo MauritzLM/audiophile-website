@@ -27,3 +27,38 @@
         margin: 0 auto;
     }
 }
+
+/* tablet */
+@media  screen and (min-width: 700px) {
+    .product-card-short {
+        img {
+            margin-bottom: 52px;
+        }
+
+        .new {
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-size: 40px;
+            letter-spacing: 1.44px;
+            margin-top: 0;
+            margin-bottom: 32px;
+        }
+
+        p {
+            max-width: 572px;
+            margin: auto;
+        }
+
+        .cs-button {
+            margin-top: 24px;
+        }
+
+
+        // spacing between last card and categories component
+        &:last-child {
+            margin-bottom: 52px;
+        }
+    }
+}

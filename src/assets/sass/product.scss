@@ -13,20 +13,37 @@
     }
 }
 
+/* tablet */
+@media screen and (min-width: 700px) {
+    .product-wrapper {
+        margin-top: 60px;
+        gap: 120px;
+
+        .go-back {
+            top: -55px;
+        }
+    }
+}
+
 /* product card */
 .product-card {
-    img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 32px;
+    picture {
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 32px;
+            border-radius: 8px;
+        }
     }
 
     .new {
         margin-bottom: 24px;
     }
 
-    h2 {
+    h1 {
         font-size: 28px;
+        letter-spacing: 1px;
+        margin-top: 0;
     }
 
     p {
@@ -90,7 +107,38 @@
     }
 }
 
+/* tablet */
+@media screen and (min-width: 700px) {
+    .product-card {
+        display: flex;
+        gap: 69px;
+        align-items: center;
 
+        picture {
+            width: 50%;
+
+            img {
+                height: 100%;
+                margin: 0;
+                object-fit: cover;
+            }
+        }
+
+        .product-details {
+            width: 340px;
+        }
+
+        .new {
+            font-size: 12px;
+            margin: 0 0 17px 0;
+        }
+
+        p {
+            margin: 32px 0;
+        }
+
+    }
+}
 
 /* product features */
 .product-features {
@@ -139,6 +187,42 @@
             width: 100%;
             height: auto;
             border-radius: 8px;
+        }
+    }
+}
+
+/* tablet */
+@media screen and (min-width: 700px) {
+    .product-features {
+        p {
+            margin-bottom: 120px;
+        }
+
+        .gallery {
+            margin-top: 120px;
+            gap: 18px;
+            grid-template-areas: "image1 image3"
+                "image2 image3";
+            grid-template-columns: 40% 57%;
+
+            picture {
+                &:nth-of-type(1) {
+                    grid-area: image1;
+                }
+
+                &:nth-of-type(2) {
+                    grid-area: image2;
+                }
+
+                &:nth-of-type(3) {
+                    grid-area: image3;
+                }
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
         }
     }
 }

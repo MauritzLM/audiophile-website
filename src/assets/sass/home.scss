@@ -33,11 +33,12 @@
 
         .new {
             color: var(--grey-300);
-            margin: 0;
+            margin: 0 auto;
         }
 
         p {
-            margin: 24px 0;
+            margin: 24px auto;
+            max-width: 350px;
         }
 
         .cs-button {
@@ -46,13 +47,37 @@
     }
 }
 
-/* content layout */
+/* tablet */
+@media screen and (min-width: 700px) {
+    #hero {
+        .cs-text {
+            h1 {
+                font-size: 56px;
+                letter-spacing: 2px;
+                margin: 24px 0;
+                line-height: 1.1;
+            }
+
+            .cs-button {
+                margin-top: 40px;
+            }
+        }
+    }
+}
+
+/* CONTENT LAYOUT */
 .home-content-wrapper {
     padding: 92px 24px 0 24px;
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 120px;
+}
+
+/* tablet */
+.home-content-wrapper {
+    padding: 148px 40px 0 40px;
+    gap: 96px;
 }
 
 
@@ -77,11 +102,10 @@
             background-size: contain;
             background-position: top;
             background-repeat: no-repeat;
-            height: 600px;
             padding: 55px 24px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 32px;
 
 
             picture {
@@ -110,6 +134,8 @@
 
                 p {
                     color: white;
+                    margin: 24px 0;
+                    max-width: 350px;
                 }
 
                 .cs-button {
@@ -193,15 +219,18 @@
             .cs-text {
                 // height: 200px;
                 background-color: var(--grey-200);
-                padding-left: 24px;
-                padding-top: 41px;
-                padding-bottom: 41px;
+                padding: 41px 24px 41px 24px;
                 border-radius: 8px;
+
+                h2 {
+                    margin: 0;
+                }
 
                 .cs-button {
                     background-color: transparent;
                     color: black;
                     border: 1px solid;
+                    margin-top: 32px;
 
                     &:hover {
                         background-color: black;
@@ -209,6 +238,44 @@
                     }
                 }
 
+            }
+        }
+    }
+}
+
+/* tablet */
+@media screen and (min-width: 700px) {
+    .home-featured {
+        gap: 32px;
+
+        li {
+            &:nth-of-type(1) {
+                padding-top: 52px;
+                padding-bottom: 64px;
+            }
+
+            &:nth-of-type(2) {
+                padding-left: 62px;
+            }
+
+            &:nth-of-type(3) {
+                flex-direction: row;
+                gap: 11px;
+                height: 320px;
+
+                picture {
+                    width: 50%;
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .cs-text {
+                    padding: 101px 41px;
+                    width: 50%;
+                }
             }
         }
     }

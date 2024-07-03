@@ -312,8 +312,18 @@ picture {
 }
 
 /* tablet header */
-@media screen and (min-width:768px) {
+@media screen and (min-width:700px) {
     #cs-navigation {
+
+        nav {
+            justify-content: flex-start;
+            gap: 42px;
+            padding: 0 40px;
+
+            .cart-button {
+                margin: 0 0 0 auto;
+            }
+        }
 
         .nav-links-wrapper {
             .categories {
@@ -393,6 +403,26 @@ picture {
     }
 }
 
+/* tablet */
+#about {
+    margin-bottom: 96px;
+
+    img {
+        margin-bottom: 64px;
+    }
+
+    h2 {
+        font-size: 40px;
+        max-width: 573px;
+        margin: auto;
+    }
+
+    p {
+        max-width: 573px;
+        margin: 32px auto 0 32px;
+    }
+}
+
 /* FOOTER */
 footer {
     background-color: black;
@@ -444,5 +474,51 @@ footer {
                 }
             }
         }
+    }
+}
+
+/* tablet */
+@media screen and (min-width: 700px) {
+    footer {
+        padding: 60px 40px 46px 40px;
+        grid-template-areas: "logo logo"
+            "sitemap sitemap"
+            "text text"
+            "copyright socials";
+        grid-template-columns: 1fr 1fr;
+        justify-items: start;
+        text-align: left;
+        gap: 32px;
+
+        .color-box {
+            left: 40px;
+        }
+
+        .logo {
+            grid-area: logo;
+        }
+
+        .sitemap {
+            grid-area: sitemap;
+            flex-direction: row;
+            gap: 34px;
+        }
+
+        .footer-text {
+            grid-area: text;
+        }
+
+        .copyright {
+            grid-area: copyright;
+            margin-top: 48px;
+        }
+
+        .social-links {
+            grid-area: socials;
+            justify-self: end;
+            margin-top: 48px;
+        }
+
+
     }
 }

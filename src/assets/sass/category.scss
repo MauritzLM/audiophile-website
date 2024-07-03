@@ -18,11 +18,30 @@
     }
 }
 
+/* tablet */
+@media  screen and (min-width: 700px) {
+    #inner-hero {
+        height: 246px;
+
+        h1 {
+            font-size: 40px;
+            letter-spacing: 1.44px;
+        }
+    }
+}
+
 /* PRODUCT CARDS SECTION */
 .content-wrapper {
     .card-wrapper {
         display: flex;
         flex-direction: column;
         gap: 120px;
+    }
+}
+
+/* tablet */
+@media  screen and (min-width: 700px) {
+    .content-wrapper {
+        padding: 120px 40px 24px 40px;
     }
 }

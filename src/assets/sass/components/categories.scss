@@ -59,3 +59,11 @@
         }
     }
 }
+
+/* tablet */
+@media screen and (min-width: 700px) {
+    .categories {
+        flex-direction: row;
+        gap: 10px;
+    }
+}

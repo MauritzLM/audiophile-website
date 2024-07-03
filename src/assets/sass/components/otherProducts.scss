@@ -27,3 +27,16 @@
         }
     }
 }
+
+/* tablet */
+@media screen and (min-width: 700px) {
+    .other-products {
+        margin-bottom: 52px;
+
+        .container {
+            flex-direction: row;
+            gap: 11px;
+            justify-content: center;
+        }
+    }
+}
