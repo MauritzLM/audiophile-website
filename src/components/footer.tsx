@@ -5,7 +5,7 @@ function Footer() {
         <footer>
             <div className="color-box"></div>
             {/* logo */}
-            <img src="/src/assets/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
+            <img className="logo" src="/src/assets/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
 
             {/* sitemap */}
             <div className="sitemap">
@@ -16,12 +16,12 @@ function Footer() {
             </div>
 
             {/* about paragraph */}
-            <p>Audiophile is an all in one stop to fulfill your audio needs.
+            <p className="footer-text">Audiophile is an all in one stop to fulfill your audio needs.
                 We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio.
                 Come and visit our demo facility - we’re open 7 days a week.</p>
 
             {/* copyright */}
-            <p>Copyright 2021. All Rights Reserved</p>
+            <p className="copyright">Copyright 2021. All Rights Reserved</p>
 
             {/* social links */}
             <div className="social-links">

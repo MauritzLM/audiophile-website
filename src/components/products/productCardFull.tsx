@@ -21,19 +21,21 @@ function ProductCardFull({ product, addToCart }: productCardFullProps) {
                 </picture>
 
                 {/* new? */}
-                {product?.new ? <p className="new" data-testid="new">new product</p> : ''}
+                <div className="product-details">
+                    {product?.new ? <p className="new" data-testid="new">new product</p> : ''}
 
-                {/* name */}
-                <h1>{product?.name}</h1>
+                    {/* name */}
+                    <h1>{product?.name}</h1>
 
-                {/* description */}
-                <p className="description">{product?.description}</p>
+                    {/* description */}
+                    <p className="description">{product?.description}</p>
 
-                {/* price */}
-                <p className="price" data-testid="price">$ {product?.price}</p>
+                    {/* price */}
+                    <p className="price" data-testid="price">$ {product?.price}</p>
 
-                {/* add to cart button && quantity input component */}
-                <QuantityInput product={product} addToCart={addToCart} />
+                    {/* add to cart button && quantity input component */}
+                    <QuantityInput product={product} addToCart={addToCart} />
+                </div>
             </div>
         </>
     )

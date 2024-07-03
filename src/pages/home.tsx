@@ -50,6 +50,9 @@ function Home({ featured }: homeProps) {
                         // three separate returns*
                         // if item 1
                         if (index === 0) {
+                            // split string to format name
+                            const nameArr = item.slug.split("-");
+
                             return <li key={item.name}>
                                 {/* image, p, button */}
                                 <picture>
@@ -61,7 +64,7 @@ function Home({ featured }: homeProps) {
                                 </picture>
 
                                 <div className="cs-text">
-                                    <h2>{item.slug.replace("-", " ")}</h2>
+                                    <h2>{nameArr[0]}<br /> {nameArr[1]}</h2>
                                     <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
                                     <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
                                 </div>
@@ -70,6 +73,7 @@ function Home({ featured }: homeProps) {
 
                         // if item 2
                         if (index === 1) {
+
                             <li key={item.name}>
                                 <picture>
                                     <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />

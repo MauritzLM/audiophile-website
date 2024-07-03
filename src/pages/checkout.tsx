@@ -41,7 +41,7 @@ function Checkout({ cart, clearCart }: checkoutProps) {
             <>
                 <div className="checkout-wrapper">
                     <Link className="go-back" to="/">go back</Link>
-                    <p>cart is empty</p>
+                    <h2>your cart is empty</h2>
                 </div>
             </>
         )
