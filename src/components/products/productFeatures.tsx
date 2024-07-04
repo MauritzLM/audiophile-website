@@ -22,22 +22,22 @@ function ProductFeatures({ product }: productFeaturesProps) {
                 {/* images */}
                 <div className="gallery">
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={`/src/${product?.gallery.first.mobile}`} />
-                        <source media="(max-width: 1000px)" srcSet={`/src/${product?.gallery.first.tablet}`} />
-                        <source media="(min-width: 1001px)" srcSet={`/src/${product?.gallery.first.desktop}`} />
+                        <source media="(max-width: 700px)" srcSet={`/src${product?.gallery.first.mobile}`} />
+                        <source media="(max-width: 1000px)" srcSet={`/src${product?.gallery.first.tablet}`} />
+                        <source media="(min-width: 1001px)" srcSet={`/src${product?.gallery.first.desktop}`} />
                         <img src={`/src/${product?.gallery.first.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={`/src/${product?.gallery.second.mobile}`} />
-                        <source media="(max-width: 1000px)" srcSet={`/src/${product?.gallery.second.tablet}`} />
-                        <source media="(min-width: 1001px)" srcSet={`/src/${product?.gallery.second.desktop}`} />
+                        <source media="(max-width: 700px)" srcSet={`/src${product?.gallery.second.mobile}`} />
+                        <source media="(max-width: 1000px)" srcSet={`/src${product?.gallery.second.tablet}`} />
+                        <source media="(min-width: 1001px)" srcSet={`/src${product?.gallery.second.desktop}`} />
                         <img src={`/src/${product?.gallery.first.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={`/src/${product?.gallery.third.mobile}`} />
-                        <source media="(max-width: 1000px)" srcSet={`/src/${product?.gallery.third.tablet}`} />
-                        <source media="(min-width: 1001px)" srcSet={`/src/${product?.gallery.third.desktop}`} />
-                        <img src={`/src/${product?.gallery.first.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                        <source media="(max-width: 700px)" srcSet={`/src${product?.gallery.third.mobile}`} />
+                        <source media="(max-width: 1000px)" srcSet={`/src${product?.gallery.third.tablet}`} />
+                        <source media="(min-width: 1001px)" srcSet={`/src${product?.gallery.third.desktop}`} />
+                        <img src={`/src${product?.gallery.first.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                 </div>
             </section>

@@ -17,16 +17,16 @@ function OtherProducts({ product }: otherProductProps) {
             return <div data-testid="other-product" key={`other-${index}`}>
               <picture>
                 {/* fix image links in db* */}
-                <source media="(max-width: 700px)" srcSet={`/src/${item.image.mobile}`} />
-                <source media="(max-width: 1000px)" srcSet={`/src/${item.image.tablet}`} />
-                <source media="(min-width: 1001px)" srcSet={`/src/${item.image.desktop}`} />
-                <img src={`/src/${item.image.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                <source media="(max-width: 700px)" srcSet={`/src${item.image.mobile}`} />
+                <source media="(max-width: 1000px)" srcSet={`/src${item.image.tablet}`} />
+                <source media="(min-width: 1001px)" srcSet={`/src${item.image.desktop}`} />
+                <img src={`/src${item.image.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
               </picture>
 
               <h3 data-testid="item-name">{item.name}</h3>
 
-              {/* link to product page - need to add category property on object* */}
-              <Link className="cs-button" to="/">See product</Link>
+              {/* link to product page */}
+              <Link className="cs-button" to={`/${item.category}/${item.name}`}>See product</Link>
             </div>
           })}
         </div>
