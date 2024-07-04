@@ -16,7 +16,7 @@ const clearCart = vi.fn()
 
 describe("cart component", () => {
     it("rendering", () => {
-        render(<BrowserRouter><Cart cart={cartContents} updateCart={updateCart} clearCart={clearCart} /></BrowserRouter>);
+        render(<BrowserRouter><Cart cart={cartContents} updateCart={updateCart} clearCart={clearCart} viewCart={true} handleViewCart={vi.fn()} /></BrowserRouter>);
 
         // renders element for each unique item
         expect(screen.getAllByRole("listitem")).toHaveLength(2);
@@ -26,14 +26,14 @@ describe("cart component", () => {
     });
 
     it("rendering empty cart", () => {
-        render(<BrowserRouter><Cart cart={[]} updateCart={updateCart} clearCart={clearCart} /></BrowserRouter>);
+        render(<BrowserRouter><Cart cart={[]} updateCart={updateCart} clearCart={clearCart} viewCart={true} handleViewCart={vi.fn()} /></BrowserRouter>);
 
         expect(screen.getByText("cart is empty")).toBeInTheDocument();
     });
 
     // test user actions - remove all
     it("test remove all button", async () => {
-        render(<BrowserRouter><Cart cart={cartContents} updateCart={updateCart} clearCart={clearCart} /></BrowserRouter>);
+        render(<BrowserRouter><Cart cart={cartContents} updateCart={updateCart} clearCart={clearCart} viewCart={true} handleViewCart={vi.fn()} /></BrowserRouter>);
 
         const user = userEvent.setup();
 
