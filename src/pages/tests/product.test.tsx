@@ -24,7 +24,7 @@ describe("product page tests", () => {
 
         render(
             <MemoryRouter initialEntries={["?/speakers/ZX7%20Speaker"]}>
-                <Product fetchedProducts={fetchedProducts_1} addToCart={addToCart} />
+                <Product fetchedProducts={fetchedProducts_1} addToCart={addToCart} updateProducts={vi.fn()} />
             </MemoryRouter>
         );
 
@@ -42,7 +42,7 @@ describe("product page tests", () => {
 
         render(
             <MemoryRouter initialEntries={["?/speakers/ZX7%20Speaker"]}>
-                <Product fetchedProducts={fetchedProducts_2} addToCart={addToCart} />
+                <Product fetchedProducts={fetchedProducts_2} addToCart={addToCart} updateProducts={vi.fn()} />
             </MemoryRouter>
         );
 
