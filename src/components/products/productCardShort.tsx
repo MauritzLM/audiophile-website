@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router-dom"
 import { item } from "../../types"
-import { getImageURL } from "../../utils/image-util"
 import "/src/assets/sass/components/productCardShort.scss"
 
 interface productCardShortProps {
@@ -21,10 +20,10 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 {/* image */}
                 <picture>
                     {/* fix category image naming* */}
-                    <source media="(max-width: 700px)" srcSet={getImageURL(`../${item.categoryimage.mobile}`)} />
-                    <source media="(max-width: 1000px)" srcSet={getImageURL(`../${item.categoryimage.tablet}`)} />
-                    <source media="(min-width: 1001px)" srcSet={getImageURL(`../${item.categoryimage.desktop}`)} />
-                    <img src={getImageURL(`../${item.categoryimage.desktop}`)} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                    <source media="(max-width: 700px)" srcSet={`${item.categoryimage.mobile}`} />
+                    <source media="(max-width: 1000px)" srcSet={`${item.categoryimage.tablet}`} />
+                    <source media="(min-width: 1001px)" srcSet={`${item.categoryimage.desktop}`} />
+                    <img src={`${item.categoryimage.desktop}`} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                 </picture>
 
                 {/* new? */}

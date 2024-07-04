@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import Categories from "./products/categories"
 import { useState } from "react"
-import { getImageURL } from "../utils/image-util"
 
 interface headerProps {
    handleViewCart: () => void
@@ -23,7 +22,7 @@ function Header({ handleViewCart }: headerProps) {
                </button>
 
                {/* logo */}
-               <img src={getImageURL("../assets/svgs/logo.svg")} alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
+               <img src="/svgs/logo.svg" alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
                {/* categories component for mobile nav */}
                <div onClick={() => setShowNav(false)} className="nav-links-wrapper">
                   <Categories />
@@ -38,7 +37,7 @@ function Header({ handleViewCart }: headerProps) {
                </div>
 
                {/* cart display button* */}
-               <button className="cart-button" data-testid="view-cart" aria-label="cart" onClick={handleViewCart}><img src={getImageURL("../assets/svgs/icon-cart.svg")} alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
+               <button className="cart-button" data-testid="view-cart" aria-label="cart" onClick={handleViewCart}><img src="/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
             </nav>
          </header>
       </>

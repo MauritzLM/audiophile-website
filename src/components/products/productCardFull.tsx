@@ -1,7 +1,6 @@
 
 import { item } from "../../types"
 import QuantityInput from "../quantityInput"
-import { getImageURL } from "../../utils/image-util"
 
 interface productCardFullProps {
     product: item,
@@ -15,10 +14,10 @@ function ProductCardFull({ product, addToCart }: productCardFullProps) {
             {/* prodcut image */}
             <div className="product-card">
                 <picture>
-                    <source media="(max-width: 700px)" srcSet={getImageURL(`..${product?.image.mobile}`)} />
-                    <source media="(max-width: 1000px)" srcSet={getImageURL(`..${product?.image.tablet}`)} />
-                    <source media="(min-width: 1001px)" srcSet={getImageURL(`..${product?.image.desktop}`)} />
-                    <img src={getImageURL(`..${product?.image.desktop}`)} alt={product?.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                    <source media="(max-width: 700px)" srcSet={`${product?.image.mobile}`} />
+                    <source media="(max-width: 1000px)" srcSet={`${product?.image.tablet}`} />
+                    <source media="(min-width: 1001px)" srcSet={`${product?.image.desktop}`} />
+                    <img src={`${product?.image.desktop}`} alt={product?.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                 </picture>
 
                 {/* new? */}
