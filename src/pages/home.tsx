@@ -57,10 +57,10 @@ function Home({ featured }: homeProps) {
                             return <li key={item.name}>
                                 {/* image, p, button */}
                                 <picture>
-                                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.png`)} />
-                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.png`)} />
-                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.png`)} />
-                                    <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.png`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                    <source media="(max-width: 700px)" srcSet={getImageURL(`../assets/images/home/mobile/image-${item.slug}.png`)} />
+                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`../assets/images/home/tablet/image-${item.slug}.png`)} />
+                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`../assets/images/home/desktop/image-${item.slug}.png`)} />
+                                    <img src={getImageURL(`../assets/images/home/desktop/image-${item.slug}.png`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
 
                                 </picture>
 
@@ -77,10 +77,10 @@ function Home({ featured }: homeProps) {
 
                             <li key={item.name}>
                                 <picture>
-                                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.jpg`)} />
-                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.jpg`)} />
-                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} />
-                                    <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                    <source media="(max-width: 700px)" srcSet={getImageURL(`../assets/images/home/mobile/image-${item.slug}.jpg`)} />
+                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`../assets/images/home/tablet/image-${item.slug}.jpg`)} />
+                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`../assets/images/home/desktop/image-${item.slug}.jpg`)} />
+                                    <img src={getImageURL(`../assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                                 </picture>
 
                                 <div className="cs-text">
@@ -93,10 +93,10 @@ function Home({ featured }: homeProps) {
                         // if item 3
                         return <li key={item.name}>
                             <picture>
-                                <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.jpg`)} />
-                                <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.jpg`)} />
-                                <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} />
-                                <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                <source media="(max-width: 700px)" srcSet={getImageURL(`../assets/images/home/mobile/image-${item.slug}.jpg`)} />
+                                <source media="(max-width: 1000px)" srcSet={getImageURL(`../assets/images/home/tablet/image-${item.slug}.jpg`)} />
+                                <source media="(min-width: 1001px)" srcSet={getImageURL(`../assets/images/home/desktop/image-${item.slug}.jpg`)} />
+                                <img src={getImageURL(`../assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                             </picture>
 
                             <div className="cs-text">

@@ -23,22 +23,22 @@ function ProductFeatures({ product }: productFeaturesProps) {
                 {/* images */}
                 <div className="gallery">
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={getImageURL(`/src${product?.gallery.first.mobile}`)} />
-                        <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${product?.gallery.first.tablet}`)} />
-                        <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${product?.gallery.first.desktop}`)} />
-                        <img src={getImageURL(`/src/${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                        <source media="(max-width: 700px)" srcSet={getImageURL(`..${product?.gallery.first.mobile}`)} />
+                        <source media="(max-width: 1000px)" srcSet={getImageURL(`..${product?.gallery.first.tablet}`)} />
+                        <source media="(min-width: 1001px)" srcSet={getImageURL(`..${product?.gallery.first.desktop}`)} />
+                        <img src={getImageURL(`..${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={getImageURL(`/src${product?.gallery.second.mobile}`)} />
-                        <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${product?.gallery.second.tablet}`)} />
-                        <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${product?.gallery.second.desktop}`)} />
-                        <img src={getImageURL(`/src/${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                        <source media="(max-width: 700px)" srcSet={getImageURL(`..${product?.gallery.second.mobile}`)} />
+                        <source media="(max-width: 1000px)" srcSet={getImageURL(`..${product?.gallery.second.tablet}`)} />
+                        <source media="(min-width: 1001px)" srcSet={getImageURL(`..${product?.gallery.second.desktop}`)} />
+                        <img src={getImageURL(`..${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                     <picture data-testid="picture">
-                        <source media="(max-width: 700px)" srcSet={getImageURL(`/src${product?.gallery.third.mobile}`)} />
-                        <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${product?.gallery.third.tablet}`)} />
-                        <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${product?.gallery.third.desktop}`)} />
-                        <img src={getImageURL(`/src${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                        <source media="(max-width: 700px)" srcSet={getImageURL(`..${product?.gallery.third.mobile}`)} />
+                        <source media="(max-width: 1000px)" srcSet={getImageURL(`..${product?.gallery.third.tablet}`)} />
+                        <source media="(min-width: 1001px)" srcSet={getImageURL(`..${product?.gallery.third.desktop}`)} />
+                        <img src={getImageURL(`..${product?.gallery.first.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                     </picture>
                 </div>
             </section>

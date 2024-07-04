@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
+import { getImageURL } from "../utils/image-util"
 
 function Footer() {
     return (
         <footer>
             <div className="color-box"></div>
             {/* logo */}
-            <img className="logo" src="/src/assets/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
+            <img className="logo" src={getImageURL("../assets/svgs/logo.svg")} alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
 
             {/* sitemap */}
             <div className="sitemap">

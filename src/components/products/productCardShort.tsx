@@ -21,10 +21,10 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 {/* image */}
                 <picture>
                     {/* fix category image naming* */}
-                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src${item.categoryimage.mobile}`)} />
-                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${item.categoryimage.tablet}`)} />
-                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${item.categoryimage.desktop}`)} />
-                    <img src={getImageURL(`/src${item.categoryimage.desktop}`)} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                    <source media="(max-width: 700px)" srcSet={getImageURL(`../${item.categoryimage.mobile}`)} />
+                    <source media="(max-width: 1000px)" srcSet={getImageURL(`../${item.categoryimage.tablet}`)} />
+                    <source media="(min-width: 1001px)" srcSet={getImageURL(`../${item.categoryimage.desktop}`)} />
+                    <img src={getImageURL(`../${item.categoryimage.desktop}`)} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                 </picture>
 
                 {/* new? */}

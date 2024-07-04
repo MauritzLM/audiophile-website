@@ -33,7 +33,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
       <div className="payment-success-wrapper">
         <div className="payment-success">
           {/* checkmark */}
-          <img src={getImageURL("/src/assets/images/checkout/icon-order-confirmation.svg")} alt="" aria-hidden="true" loading="lazy" decoding="async" height="64px" width="64px" />
+          <img src={getImageURL("../assets/images/checkout/icon-order-confirmation.svg")} alt="" aria-hidden="true" loading="lazy" decoding="async" height="64px" width="64px" />
 
           <h2>Thank you <br /> for your order</h2>
           <p className="cs-text">You will receive an email confirmation shortly.</p>
@@ -67,7 +67,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                     return <li key={item.name}>
                       {/* image name price */}
                       <div>
-                        <img src={getImageURL(`/src/assets/images/cart/image-${item.slug}.jpg`)} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                        <img src={getImageURL(`../assets/images/cart/image-${item.slug}.jpg`)} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                         <h4>{nameArr.join(" ")}</h4>
                         <p>$ {item.price}</p>
                       </div>
@@ -80,7 +80,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                   return <li className={expandedView ? "" : "hidden"} key={item.name}>
                     {/* image name price */}
                     <div>
-                      <img src={getImageURL(`/src/assets/images/cart/image-${item.slug}.jpg`)} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                      <img src={getImageURL(`../assets/images/cart/image-${item.slug}.jpg`)} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                       <h4>{nameArr.join(" ")}</h4>
                       <p>$ {item.price}</p>
                     </div>
