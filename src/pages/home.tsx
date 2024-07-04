@@ -5,6 +5,7 @@ import Categories from "../components/products/categories"
 import { item } from "../types"
 import "/src/assets/sass/home.scss"
 import { useEffect } from "react"
+import { getImageURL } from "../utils/image-util"
 
 interface homeProps {
     featured: item[]
@@ -22,10 +23,10 @@ function Home({ featured }: homeProps) {
             {/* hero section - main featured product */}
             <section id="hero">
                 <picture>
-                    <source media="(max-width: 700px)" srcSet="/src/assets/images/home/mobile/image-header.jpg" />
-                    <source media="(max-width: 1000px)" srcSet="/src/assets/images/home/tablet/image-header.jpg" />
-                    <source media="(min-width: 1001px)" srcSet="/src/assets/images/home/desktop/image-hero.jpg" />
-                    <img src="/src/assets/images/home/desktop/image-hero.jpg" alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
+                    <source media="(max-width: 700px)" srcSet={getImageURL("/src/assets/images/home/mobile/image-header.jpg")} />
+                    <source media="(max-width: 1000px)" srcSet={getImageURL("/src/assets/images/home/tablet/image-header.jpg")} />
+                    <source media="(min-width: 1001px)" srcSet={getImageURL("/src/assets/images/home/desktop/image-hero.jpg")} />
+                    <img src={getImageURL("/src/assets/images/home/desktop/image-hero.jpg")} alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
                 </picture>
 
                 <div className="cs-text">
@@ -56,10 +57,10 @@ function Home({ featured }: homeProps) {
                             return <li key={item.name}>
                                 {/* image, p, button */}
                                 <picture>
-                                    <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.png`} />
-                                    <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.png`} />
-                                    <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.png`} />
-                                    <img src={`/src/assets/images/home/desktop/image-${item.slug}.png`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.png`)} />
+                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.png`)} />
+                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.png`)} />
+                                    <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.png`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
 
                                 </picture>
 
@@ -76,10 +77,10 @@ function Home({ featured }: homeProps) {
 
                             <li key={item.name}>
                                 <picture>
-                                    <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />
-                                    <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.jpg`} />
-                                    <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} />
-                                    <img src={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.jpg`)} />
+                                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.jpg`)} />
+                                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} />
+                                    <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                                 </picture>
 
                                 <div className="cs-text">
@@ -92,10 +93,10 @@ function Home({ featured }: homeProps) {
                         // if item 3
                         return <li key={item.name}>
                             <picture>
-                                <source media="(max-width: 700px)" srcSet={`/src/assets/images/home/mobile/image-${item.slug}.jpg`} />
-                                <source media="(max-width: 1000px)" srcSet={`/src/assets/images/home/tablet/image-${item.slug}.jpg`} />
-                                <source media="(min-width: 1001px)" srcSet={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} />
-                                <img src={`/src/assets/images/home/desktop/image-${item.slug}.jpg`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                                <source media="(max-width: 700px)" srcSet={getImageURL(`/src/assets/images/home/mobile/image-${item.slug}.jpg`)} />
+                                <source media="(max-width: 1000px)" srcSet={getImageURL(`/src/assets/images/home/tablet/image-${item.slug}.jpg`)} />
+                                <source media="(min-width: 1001px)" srcSet={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} />
+                                <img src={getImageURL(`/src/assets/images/home/desktop/image-${item.slug}.jpg`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                             </picture>
 
                             <div className="cs-text">

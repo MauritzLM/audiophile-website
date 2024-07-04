@@ -1,15 +1,16 @@
+import { getImageURL } from "../utils/image-util"
 
 function About() {
   return (
     <>
       <section id="about">
         <picture>
-          <source media="(max-width: 700px)" srcSet="/src/assets/images/shared/mobile/image-best-gear.jpg" />
-          <source media="(max-width: 1000px)" srcSet="/src/assets/images/shared/tablet/image-best-gear.jpg" />
-          <source media="(min-width: 1001px)" srcSet="/src/assets/images/shared/desktop/image-best-gear.jpg" />
-          <img src="/src/assets/images/shared/desktop/image-best-gear.jpg" alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+          <source media="(max-width: 700px)" srcSet={getImageURL("/src/assets/images/shared/mobile/image-best-gear.jpg")} />
+          <source media="(max-width: 1000px)" srcSet={getImageURL("/src/assets/images/shared/tablet/image-best-gear.jpg")} />
+          <source media="(min-width: 1001px)" srcSet={getImageURL("/src/assets/images/shared/desktop/image-best-gear.jpg")} />
+          <img src={getImageURL("/src/assets/images/shared/desktop/image-best-gear.jpg")} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
         </picture>
-       
+
         <h2>Bringing you the <span>best</span> audio gear</h2>
 
         <p>Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories.

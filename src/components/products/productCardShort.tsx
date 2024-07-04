@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 import { item } from "../../types"
+import { getImageURL } from "../../utils/image-util"
 import "/src/assets/sass/components/productCardShort.scss"
 
 interface productCardShortProps {
@@ -20,17 +21,17 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 {/* image */}
                 <picture>
                     {/* fix category image naming* */}
-                    <source media="(max-width: 700px)" srcSet={`/src${item.categoryimage.mobile}`} />
-                    <source media="(max-width: 1000px)" srcSet={`/src${item.categoryimage.tablet}`} />
-                    <source media="(min-width: 1001px)" srcSet={`/src${item.categoryimage.desktop}`} />
-                    <img src={`/src${item.categoryimage.desktop}`} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                    <source media="(max-width: 700px)" srcSet={getImageURL(`/src${item.categoryimage.mobile}`)} />
+                    <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${item.categoryimage.tablet}`)} />
+                    <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${item.categoryimage.desktop}`)} />
+                    <img src={getImageURL(`/src${item.categoryimage.desktop}`)} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                 </picture>
-                
+
                 {/* new? */}
                 {item.new ? <p className="new" data-testid="new">new product</p> : ''}
 
                 {/* name and description */}
-                <h2>{nameArr.join(" ")}<br/> {categoryName}</h2>
+                <h2>{nameArr.join(" ")}<br /> {categoryName}</h2>
                 <p>{item.description}</p>
 
                 {/* button */}

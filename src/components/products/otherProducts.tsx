@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { item } from "../../types"
+import { getImageURL } from "../../utils/image-util"
 import "/src/assets/sass/components/otherProducts.scss"
 
 interface otherProductProps {
@@ -17,10 +18,10 @@ function OtherProducts({ product }: otherProductProps) {
             return <div data-testid="other-product" key={`other-${index}`}>
               <picture>
                 {/* fix image links in db* */}
-                <source media="(max-width: 700px)" srcSet={`/src${item.image.mobile}`} />
-                <source media="(max-width: 1000px)" srcSet={`/src${item.image.tablet}`} />
-                <source media="(min-width: 1001px)" srcSet={`/src${item.image.desktop}`} />
-                <img src={`/src${item.image.desktop}`} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
+                <source media="(max-width: 700px)" srcSet={getImageURL(`/src${item.image.mobile}`)} />
+                <source media="(max-width: 1000px)" srcSet={getImageURL(`/src${item.image.tablet}`)} />
+                <source media="(min-width: 1001px)" srcSet={getImageURL(`/src${item.image.desktop}`)} />
+                <img src={getImageURL(`/src${item.image.desktop}`)} alt="" aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
               </picture>
 
               <h3 data-testid="item-name">{item.name}</h3>

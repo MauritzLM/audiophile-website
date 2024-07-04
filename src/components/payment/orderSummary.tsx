@@ -1,5 +1,6 @@
 
 import { item } from "../../types"
+import { getImageURL } from "../../utils/image-util";
 
 interface orderSummaryProps {
     cart: item[]
@@ -43,7 +44,7 @@ function OrderSummary({ cart }: orderSummaryProps) {
                         return <li key={item.name}>
                             {/* image name price */}
                             <div>
-                                <img src={`/src/assets/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
+                                <img src={getImageURL(`/src/assets/images/cart/image-${item.slug}.jpg`)} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                                 <h4>{nameArr.join(" ")}</h4>
                                 <p>$ {item.price}</p>
                             </div>
