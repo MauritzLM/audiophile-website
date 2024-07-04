@@ -79,7 +79,8 @@ function App() {
   // fetch featured products
   async function fetchFeatured() {
     try {
-      const response = await fetch('http://localhost:3000/featured')
+      // https://audiophile-server-production-d261.up.railway.app
+      const response = await fetch('https://audiophile-server-production-d261.up.railway.app/featured')
 
       const message: item[] = await response.json()
 
@@ -113,7 +114,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home featured={featured} />} />
           <Route path='/:category' element={<Category fetchedProducts={fetchedProducts} updateProducts={updateProducts} />} />
-          <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} addToCart={addToCart} />} />
+          <Route path='/:category/:productname' element={<Product fetchedProducts={fetchedProducts} addToCart={addToCart} updateProducts={updateProducts} />} />
           <Route path='/checkout' element={<Checkout cart={cart} clearCart={clearCart} />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>

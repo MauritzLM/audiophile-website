@@ -19,7 +19,7 @@ function Cart({ cart, updateCart, clearCart, viewCart, handleViewCart }: cartPro
   const cartSorted = cart.sort((a, b) => b.price - a.price)
 
   // empty cart
-  if (!cart.length) {
+  if (!cart.length || !cart) {
     return (
       <>
         <div className={viewCart ? "cart-wrapper" : "hidden"}>
@@ -45,7 +45,7 @@ function Cart({ cart, updateCart, clearCart, viewCart, handleViewCart }: cartPro
 
           <ul>
             {/* for each unique item */}
-            {cartSorted.map((item) => {
+            {cartSorted?.map((item) => {
               // check if item is unique
               if (compareArr.includes(item.name)) {
                 return

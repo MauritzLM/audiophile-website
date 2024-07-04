@@ -12,14 +12,17 @@ import { Link } from "react-router-dom"
 
 interface productProps {
     fetchedProducts: fetchedItems,
-    addToCart: (product: item, quantity: number) => void
+    addToCart: (product: item, quantity: number) => void,
+    updateProducts: (category: string, fetchedProducts: item[]) => void
 }
 
-function Product({ fetchedProducts, addToCart }: productProps) {
+function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
     // get category and product name from params
     const { productname, category } = useParams();
 
     const [product, setProduct] = useState<item>();
+
+    const [fetchError, setFetchError] = useState(false);
 
     // if product not in state then fetch it and update state
     useEffect(() => {
@@ -29,11 +32,20 @@ function Product({ fetchedProducts, addToCart }: productProps) {
         // function to fetch product
         async function fetchProduct() {
             try {
-                const response = await fetch(`http://localhost:3000/product/${productname}`);
+                const response = await fetch(`https://audiophile-server-production-d261.up.railway.app/product/${productname}`);
 
                 const fetchedProduct = await response.json();
 
+                if (fetchedProduct.error) {
+                    setFetchError(true);
+                    return
+                }
+
+                // update component state
                 setProduct(fetchedProduct);
+
+                // update app state
+                updateProducts(category!, [fetchedProduct]);
 
             } catch (error) {
                 console.log(error);
@@ -49,9 +61,22 @@ function Product({ fetchedProducts, addToCart }: productProps) {
         if (!product) {
             fetchProduct();
         }
-    }, [category, product, productname, fetchedProducts]);
+    }, [category, product, productname, fetchedProducts, updateProducts]);
 
     // implement go back*
+
+    if (fetchError) {
+        return (
+            <>
+                {/* add error components */}
+                <div className="content-wrapper">
+                    <div className="product-wrapper">
+                        <h2>Product not found</h2>
+                    </div>
+                </div>
+            </>
+        )
+    }
 
     return (
         <>

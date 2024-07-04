@@ -21,14 +21,12 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
         // function to fetch category in params
         async function fetchCategory() {
             try {
-                const response = await fetch(`http://localhost:3000/category/${category}`)
+                const response = await fetch(`https://audiophile-server-production-d261.up.railway.app/category/${category}`)
 
                 const fetchedItems = await response.json()
 
                 // update state
                 updateProducts(category!, fetchedItems)
-
-                console.log(fetchedItems);
 
             } catch (error) {
                 console.log(error)

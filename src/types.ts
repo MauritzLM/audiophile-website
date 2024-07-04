@@ -42,6 +42,7 @@ export interface item {
     others: {
         slug: string,
         name: string,
+        category: string,
         image: {
             mobile: string,
             tablet: string,

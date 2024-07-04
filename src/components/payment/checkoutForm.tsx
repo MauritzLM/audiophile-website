@@ -30,7 +30,7 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
 
             console.log(formData);
 
-            const response = await fetch('http://localhost:3000/payment/submit', {
+            const response = await fetch('https://audiophile-server-production-d261.up.railway.app/payment/submit', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
