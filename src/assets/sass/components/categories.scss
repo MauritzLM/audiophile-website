@@ -67,3 +67,10 @@
         gap: 10px;
     }
 }
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .categories {
+        gap: 30px;
+    }
+}

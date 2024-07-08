@@ -10,6 +10,7 @@
 
     picture {
         display: block;
+        width: 100%;
 
         img {
             display: block;
@@ -51,6 +52,9 @@
 @media screen and (min-width: 700px) {
     #hero {
         .cs-text {
+            max-width: 400px;
+            padding: 0;
+
             h1 {
                 font-size: 56px;
                 letter-spacing: 2px;
@@ -60,6 +64,34 @@
 
             .cs-button {
                 margin-top: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #hero {
+        text-align: left;
+
+        .cs-text {
+            width: 400px;
+            padding: 0;
+            left: 165px;
+
+            h1 {
+                font-size: 56px;
+            }
+
+            .new {
+                margin: 0;
+            }
+
+            p {
+                margin: 24px 0;
+            }
+
+            .cs-button {
+                margin: 0;
             }
         }
     }
@@ -75,10 +107,21 @@
 }
 
 /* tablet */
-.home-content-wrapper {
-    padding: 148px 40px 0 40px;
-    gap: 96px;
+@media screen and (min-width: 700px) {
+    .home-content-wrapper {
+        padding: 148px 40px 0 40px;
+        gap: 96px;
+    }
 }
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .home-content-wrapper {
+        padding: 200px 165px 0 165px;
+        gap: 168px;
+    }
+}
+
 
 
 /* FEATURED SECTION */
@@ -98,7 +141,7 @@
 
         // first product
         &:nth-of-type(1) {
-            background-image: url("/src/assets/images/home/desktop/pattern-circles.svg"), linear-gradient(var(--primary), var(--primary));
+            background-image: url("/images/home/desktop/pattern-circles.svg"), linear-gradient(var(--primary), var(--primary));
             background-size: contain;
             background-position: top;
             background-repeat: no-repeat;
@@ -197,7 +240,6 @@
                     }
                 }
             }
-
         }
 
         // third product
@@ -277,6 +319,53 @@
                     width: 50%;
                 }
             }
+        }
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .home-featured {
+        gap: 48px;
+        margin-bottom: 32px;
+
+        li {
+
+            &:nth-of-type(1) {
+                flex-direction: row;
+                position: relative;
+                justify-content: end;
+                padding-right: 95px;
+                height: 560px;
+
+                picture {
+                    margin: 0;
+                    left: 110px;
+                    bottom: -10px;
+
+                    img {
+                        width: 380px;
+                        height: auto;
+                    }
+                }
+
+                .cs-text {
+                    text-align: left;
+                    align-items: start;
+                }
+            }
+
+            &:nth-of-type(2) {
+                padding: 101px 0 101px 95px;
+                height: 320px;
+            }
+
+             &:nth-of-type(3) {
+                gap: 30px;
+                .cs-text {
+                    padding: 101px 0 101px 95px;
+                }
+             }
         }
     }
 }
