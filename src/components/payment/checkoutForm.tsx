@@ -23,7 +23,7 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
     // controlled input components
     const [formData, setFormData] = useState<formObj>(initialFormState);
 
-    // on submit function*
+    // on submit function
     const handleSubmit = async function (event: React.FormEvent<HTMLFormElement>) {
         try {
             event.preventDefault();
@@ -165,7 +165,7 @@ function CheckoutForm({ cart, handlePayment, paymentSuccess }: checkoutFormProps
                             :
                             // cash selected
                             <div className="cash-selected">
-                                <img src="/src/assets/images/checkout/icon-cash-on-delivery.svg" alt="" height="48" width="48" aria-hidden="true" loading="lazy" decoding="async"></img>
+                                <img src="/images/checkout/icon-cash-on-delivery.svg" alt="" height="48" width="48" aria-hidden="true" loading="lazy" decoding="async"></img>
                                 <p data-testid="cash-option">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence.
                                     Just make sure your address is correct so that your order will not be cancelled.</p>
                             </div>
