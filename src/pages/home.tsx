@@ -23,8 +23,8 @@ function Home({ featured }: homeProps) {
             <section id="hero">
                 <picture>
                     <source media="(max-width: 700px)" srcSet={"/images/home/mobile/image-header.jpg"} />
-                    <source media="(max-width: 1000px)" srcSet={"/images/home/tablet/image-header.jpg"} />
-                    <source media="(min-width: 1001px)" srcSet={"/images/home/desktop/image-hero.jpg"} />
+                    <source media="(max-width: 1199px)" srcSet={"/images/home/tablet/image-header.jpg"} />
+                    <source media="(min-width: 1200px)" srcSet={"/images/home/desktop/image-hero.jpg"} />
                     <img src={"/images/home/desktop/image-hero.jpg"} alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
                 </picture>
 
@@ -43,11 +43,10 @@ function Home({ featured }: homeProps) {
                 {/* category links */}
                 <Categories />
 
-
                 {/* display featured items */}
                 <ul className="home-featured">
                     {featured?.map((item: item, index: number) => {
-                        // three separate returns*
+                        // three separate returns
                         // if item 1
                         if (index === 0) {
                             // split string to format name
@@ -66,7 +65,7 @@ function Home({ featured }: homeProps) {
                                 <div className="cs-text">
                                     <h2>{nameArr[0]}<br /> {nameArr[1]}</h2>
                                     <p>Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
-                                    <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
+                                    <Link className="cs-button" to={`/${item.category}/${item.slug}`}>see product</Link>
                                 </div>
                             </li>
                         }
@@ -74,7 +73,7 @@ function Home({ featured }: homeProps) {
                         // if item 2
                         if (index === 1) {
 
-                            <li key={item.name}>
+                            return <li key={item.name}>
                                 <picture>
                                     <source media="(max-width: 700px)" srcSet={`/images/home/mobile/image-${item.slug}.jpg`} />
                                     <source media="(max-width: 1000px)" srcSet={`/images/home/tablet/image-${item.slug}.jpg`} />
@@ -84,7 +83,7 @@ function Home({ featured }: homeProps) {
 
                                 <div className="cs-text">
                                     <h2>{item.slug.replace("-", " ")}</h2>
-                                    <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
+                                    <Link className="cs-button" to={`/${item.category}/${item.slug}`}>see product</Link>
                                 </div>
                             </li>
                         }
@@ -100,7 +99,7 @@ function Home({ featured }: homeProps) {
 
                             <div className="cs-text">
                                 <h2>{item.slug.replace("-", " ")}</h2>
-                                <Link className="cs-button" to={`/${item.category}/${item.name}`}>see product</Link>
+                                <Link className="cs-button" to={`/${item.category}/${item.slug}`}>see product</Link>
                             </div>
                         </li>
 
