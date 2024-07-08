@@ -34,6 +34,8 @@ function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
             try {
                 const response = await fetch(`https://audiophile-server-production-d261.up.railway.app/product/${productname}`);
 
+                console.log(productname)
+
                 const fetchedProduct = await response.json();
 
                 if (fetchedProduct.error) {
@@ -53,12 +55,13 @@ function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
         }
 
         // if product is already in app state
-        if (fetchedProducts[category!] && fetchedProducts[category!].find(item => item.name === productname)) {
-            setProduct(fetchedProducts[category!].find(item => item.name === productname))
+        if (fetchedProducts[category!] && fetchedProducts[category!].find(item => item.slug === productname)) {
+            setProduct(fetchedProducts[category!].find(item => item.slug === productname))
+            return
         }
 
         // if product not found
-        if (!product) {
+        if (product?.slug !== productname) {
             fetchProduct();
         }
     }, [category, product, productname, fetchedProducts, updateProducts]);
