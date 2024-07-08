@@ -32,9 +32,18 @@ function Category({ fetchedProducts, updateProducts }: categoryProps) {
                 console.log(error)
             }
         }
-        // fetch products if they are not in state
-        // non-null assertion operator (!)
-        if (fetchedProducts[category!]?.length === 0) {
+
+        // category?
+        // earphones
+        if (category === "earphones" && fetchedProducts["earphones"].length < 1) {
+            fetchCategory()
+        }
+        // speakers
+        else if (category === "speakers" && fetchedProducts["speakers"].length < 2) {
+            fetchCategory()
+        }
+        // headphones
+        else if (category === "headphones" && fetchedProducts["headphones"].length < 3) {
             fetchCategory()
         }
 
