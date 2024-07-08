@@ -35,7 +35,7 @@ function Home({ featured }: homeProps) {
 
                     <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
 
-                    <Link className="cs-button" to="/headphones/XX99 Mark II Headphones">see product</Link>
+                    <Link className="cs-button" to="/headphones/xx99-mark-two-headphones">see product</Link>
                 </div>
             </section>
 
