@@ -26,7 +26,7 @@ function OtherProducts({ product }: otherProductProps) {
               <h3 data-testid="item-name">{item.name}</h3>
 
               {/* link to product page */}
-              <Link className="cs-button" to={`/${item.category}/${item.name}`}>See product</Link>
+              <Link className="cs-button" to={`/${item.category}/${item.slug}`}>See product</Link>
             </div>
           })}
         </div>

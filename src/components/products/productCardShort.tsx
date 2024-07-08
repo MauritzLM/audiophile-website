@@ -34,7 +34,7 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 <p>{item.description}</p>
 
                 {/* button */}
-                <Link className="cs-button" to={`/${category}/${item.name}`}>See product</Link>
+                <Link className="cs-button" to={`/${category}/${item.slug}`}>See product</Link>
             </li>
         </>
     )
