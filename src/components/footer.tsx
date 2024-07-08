@@ -4,8 +4,11 @@ function Footer() {
     return (
         <footer>
             <div className="color-box"></div>
+
             {/* logo */}
-            <img className="logo" src="/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
+            <Link to="/">
+                <img className="logo" src="/svgs/logo.svg" alt="logo" decoding="async" loading="lazy" aria-hidden="true" height="25px" width="143px" />
+            </Link>
 
             {/* sitemap */}
             <div className="sitemap">

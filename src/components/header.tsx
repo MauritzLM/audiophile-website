@@ -22,7 +22,10 @@ function Header({ handleViewCart }: headerProps) {
                </button>
 
                {/* logo */}
-               <img src="/svgs/logo.svg" alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
+               <Link to="/">
+                  <img src="/svgs/logo.svg" alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
+               </Link>
+               
                {/* categories component for mobile nav */}
                <div onClick={() => setShowNav(false)} className="nav-links-wrapper">
                   <Categories />
