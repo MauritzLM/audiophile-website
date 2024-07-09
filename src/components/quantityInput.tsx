@@ -24,7 +24,7 @@ function QuantityInput({ product, addToCart }: quantityInputProps) {
       setInputValue(inputValue + 1)
     }
   }
-
+  
   return (
     <>
       <div className="quantity-input">
@@ -36,7 +36,11 @@ function QuantityInput({ product, addToCart }: quantityInputProps) {
           {/* add button */}
           <button className="add-btn" onClick={increaseQuantity}>+</button>
         </label>
-        <button className="cs-button" onClick={() => addToCart(product, inputValue)}>add to cart</button>
+        <button className="cs-button" onClick={() => {
+          addToCart(product, inputValue)
+          // reset input value
+          setInputValue(1)
+        }}>add to cart</button>
       </div>
     </>
   )
