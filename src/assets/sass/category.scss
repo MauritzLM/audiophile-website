@@ -19,7 +19,7 @@
 }
 
 /* tablet */
-@media  screen and (min-width: 700px) {
+@media screen and (min-width: 700px) {
     #inner-hero {
         height: 246px;
 
@@ -35,13 +35,28 @@
     .card-wrapper {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 120px;
     }
 }
 
 /* tablet */
-@media  screen and (min-width: 700px) {
+@media screen and (min-width: 700px) {
     .content-wrapper {
         padding: 120px 40px 24px 40px;
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .content-wrapper {
+        padding: 160px 165px 0 165px;
+        gap: 160px;
+        // below about section spacing
+        margin-bottom: 60px;
+
+        .card-wrapper {
+            gap: 160px;
+        }
     }
 }
