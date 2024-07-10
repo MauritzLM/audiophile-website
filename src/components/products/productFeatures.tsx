@@ -5,19 +5,28 @@ interface productFeaturesProps {
 }
 
 function ProductFeatures({ product }: productFeaturesProps) {
+
+    // format features text
+    const featuresArr = product?.features.split("\\n")
+
     return (
         <>
             <section className="product-features">
-                <h2>Features</h2>
-                <p data-testid="description">{product?.description}</p>
+                <div className="description">
+                    <h2>Features</h2>
+                    <p data-testid="description">{featuresArr ? featuresArr[0] : ""}</p>
+                    <p>{featuresArr ? featuresArr[featuresArr.length - 1] : ""}</p>
+                </div>
 
                 {/* in the box */}
-                <h2>In the box</h2>
-                <ul>
-                    {product?.includes.map((item, index) => {
-                        return <li key={`includes-${index}`}><span>{item.quantity}x</span> <span>{item.item}</span></li>
-                    })}
-                </ul>
+                <div className="box">
+                    <h2>In the box</h2>
+                    <ul>
+                        {product?.includes.map((item, index) => {
+                            return <li key={`includes-${index}`}><span>{item.quantity}x</span> <span>{item.item}</span></li>
+                        })}
+                    </ul>
+                </div>
 
                 {/* images */}
                 <div className="gallery">
