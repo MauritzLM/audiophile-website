@@ -9,6 +9,10 @@ interface productCardFullProps {
 
 function ProductCardFull({ product, addToCart }: productCardFullProps) {
 
+    // format item name -> split name from category
+    const nameArr = product?.name.split(" ");
+    const categoryName = nameArr?.pop();
+
     return (
         <>
             {/* prodcut image */}
@@ -25,7 +29,7 @@ function ProductCardFull({ product, addToCart }: productCardFullProps) {
                     {product?.new ? <p className="new" data-testid="new">new product</p> : ''}
 
                     {/* name */}
-                    <h1>{product?.name}</h1>
+                    <h1>{nameArr?.join(" ")}<br /> {categoryName}</h1>
 
                     {/* description */}
                     <p className="description">{product?.description}</p>
