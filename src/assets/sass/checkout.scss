@@ -23,6 +23,13 @@
     }
 }
 
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .checkout-wrapper {
+        padding: 142px 165px;
+    }
+}
+
 /* FORM STYLES */
 #checkout-form {
     display: flex;
@@ -402,6 +409,26 @@
                 }
             }
 
+        }
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1300px) {
+    #checkout-form {
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-between;
+        gap: 30px;
+
+        .form-wrapper {
+            width: 65%;
+            max-width: none;
+        }
+
+        .summary-wrapper {
+            min-width: 350px;
+            width: auto;
         }
     }
 }

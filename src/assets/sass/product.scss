@@ -242,7 +242,7 @@
         }
 
         .gallery {
-            gap: 18px;
+            gap: 20px 18px;
             grid-template-areas: "image1 image3"
                 "image2 image3";
             grid-template-columns: 40% 57%;
@@ -288,6 +288,7 @@
 
         .gallery {
             grid-area: gallery;
+            gap: 32px 30px;
         }
     }
 }

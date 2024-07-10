@@ -58,3 +58,16 @@
         }
     }
 }
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .other-products {
+         h2 {
+            margin-bottom: 64px;
+         }
+
+         .container {
+            gap: 30px;
+         }
+    }
+}

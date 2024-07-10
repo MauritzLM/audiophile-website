@@ -394,11 +394,13 @@ picture {
 #about {
     margin-bottom: 120px;
 
-    img {
-        border-radius: 8px;
-        width: 100%;
-        height: auto;
-        margin-bottom: 40px;
+    picture {
+        img {
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 40px;
+        }
     }
 
     h2 {
@@ -420,24 +422,29 @@ picture {
 }
 
 /* tablet */
-#about {
-    margin-bottom: 96px;
+@media screen and (min-width: 700px) {
+    #about {
+        margin-bottom: 96px;
 
-    img {
-        margin-bottom: 64px;
-    }
+        picture {
+            img {
+                margin-bottom: 64px;
+            }
+        }
 
-    h2 {
-        font-size: 40px;
-        max-width: 573px;
-        margin: auto;
-    }
+        h2 {
+            font-size: 40px;
+            max-width: 573px;
+            margin: auto;
+        }
 
-    p {
-        max-width: 573px;
-        margin: 32px auto 0 auto;
+        p {
+            max-width: 573px;
+            margin: 32px auto 0 auto;
+        }
     }
 }
+
 
 /* desktop */
 @media screen and (min-width: 1200px) {
@@ -446,14 +453,21 @@ picture {
         gap: 125px;
         align-items: center;
         margin-bottom: 100px;
+        justify-content: space-between;
 
         picture {
             order: 1;
+
+            img {
+                margin-bottom: 0;
+            }
         }
 
         .cs-text {
             h2 {
                 text-align: left;
+                max-width: 445px;
+                margin-left: 0;
             }
 
             p {
@@ -562,12 +576,12 @@ footer {
 }
 
 /* desktop */
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1200px) {
     footer {
-        padding: 75px 165px 48px 165px; 
+        padding: 75px 165px 48px 165px;
         grid-template-areas: "logo sitemap"
-        "text socials"
-        "copyright .";
+            "text socials"
+            "copyright .";
 
         .color-box {
             left: 165px;
