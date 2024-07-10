@@ -25,6 +25,12 @@
     }
 }
 
+@media screen and (min-width: 1000px) {
+    .product-wrapper {
+        gap: 160px;
+    }
+}
+
 /* product card */
 .product-card {
     picture {
@@ -125,7 +131,7 @@
         }
 
         .product-details {
-            width: 340px;
+            width: 50%;
         }
 
         .new {
@@ -140,17 +146,44 @@
     }
 }
 
+/* desktop */
+@media screen and (min-width: 1000px) {
+    .product-card {
+        gap: 120px;
+
+        h1 {
+            font-size: 40px;
+            letter-spacing: 1.4px;
+        }
+
+        .new {
+            font-size: 14px;
+        }
+    }
+}
+
 /* product features */
 .product-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 88px;
 
     h2 {
         font-size: 24px;
         letter-spacing: .86px;
+        margin-top: 0;
     }
 
-    p {
-        margin-bottom: 88px;
+    .description {
+        p {
+            margin: 0;
+
+            &:nth-of-type(1) {
+                margin-bottom: 24px;
+            }
+        }
     }
+
 
     /* box contents */
     ul {
@@ -181,7 +214,6 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 20px;
-        margin-top: 88px;
 
         img {
             width: 100%;
@@ -194,12 +226,22 @@
 /* tablet */
 @media screen and (min-width: 700px) {
     .product-features {
-        p {
-            margin-bottom: 120px;
+        row-gap: 120px;
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+
+        .description {
+            p {
+                &:nth-of-type(1) {
+                    margin-bottom: 32px;
+                }
+            }
         }
 
         .gallery {
-            margin-top: 120px;
             gap: 18px;
             grid-template-areas: "image1 image3"
                 "image2 image3";
@@ -223,6 +265,29 @@
                     height: 100%;
                 }
             }
+        }
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1000px) {
+    .product-features {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "features box"
+            "gallery gallery";
+        column-gap: 125px;    
+
+        .description {
+            grid-area: features;
+        }
+
+        .box {
+            grid-area: box;
+        }
+
+        .gallery {
+            grid-area: gallery;
         }
     }
 }

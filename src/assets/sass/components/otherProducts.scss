@@ -5,6 +5,7 @@
         font-size: 24px;
         letter-spacing: .86px;
         margin-bottom: 40px;
+        margin-top: 0;
     }
 
     .container {
@@ -23,6 +24,7 @@
                 margin: 0;
                 font-size: 24px;
                 letter-spacing: 1.71px;
+                text-transform: uppercase;
             }
 
             img {
@@ -38,10 +40,21 @@
     .other-products {
         margin-bottom: 52px;
 
+        h2 {
+            font-size: 32px;
+            margin-bottom: 56px;
+        }
+
         .container {
             flex-direction: row;
             gap: 11px;
             justify-content: center;
+
+            div {
+                h3 {
+                    margin-top: 8px;
+                }
+            }
         }
     }
 }
