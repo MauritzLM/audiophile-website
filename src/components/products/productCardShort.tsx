@@ -21,20 +21,22 @@ function ProductCardShort({ item, index }: productCardShortProps) {
                 <picture>
                     {/* fix category image naming* */}
                     <source media="(max-width: 700px)" srcSet={`${item.categoryimage.mobile}`} />
-                    <source media="(max-width: 1000px)" srcSet={`${item.categoryimage.tablet}`} />
-                    <source media="(min-width: 1001px)" srcSet={`${item.categoryimage.desktop}`} />
+                    <source media="(max-width: 1199px)" srcSet={`${item.categoryimage.tablet}`} />
+                    <source media="(min-width: 1200px)" srcSet={`${item.categoryimage.desktop}`} />
                     <img src={`${item.categoryimage.desktop}`} alt={item.category} aria-hidden="true" decoding="async" width="" height="" loading="lazy" />
                 </picture>
 
-                {/* new? */}
-                {item.new ? <p className="new" data-testid="new">new product</p> : ''}
+                <div className="cs-text">
+                    {/* new? */}
+                    {item.new ? <p className="new" data-testid="new">new product</p> : ''}
 
-                {/* name and description */}
-                <h2>{nameArr.join(" ")}<br /> {categoryName}</h2>
-                <p>{item.description}</p>
+                    {/* name and description */}
+                    <h2>{nameArr.join(" ")}<br /> {categoryName}</h2>
+                    <p>{item.description}</p>
 
-                {/* button */}
-                <Link className="cs-button" to={`/${category}/${item.slug}`}>See product</Link>
+                    {/* button */}
+                    <Link className="cs-button" to={`/${category}/${item.slug}`}>See product</Link>
+                </div>
             </li>
         </>
     )
