@@ -34,8 +34,6 @@ function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
             try {
                 const response = await fetch(`https://audiophile-server-production-d261.up.railway.app/product/${productname}`);
 
-                console.log(productname)
-
                 const fetchedProduct = await response.json();
 
                 if (fetchedProduct.error) {
@@ -66,8 +64,6 @@ function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
         }
     }, [category, product, productname, fetchedProducts, updateProducts]);
 
-    // implement go back*
-
     if (fetchError) {
         return (
             <>
@@ -85,7 +81,7 @@ function Product({ fetchedProducts, addToCart, updateProducts }: productProps) {
         <>
             <div className="content-wrapper">
                 <div className="product-wrapper">
-                    {/* go back */}
+                    {/* go back link */}
                     <Link className="go-back" to={`/${category}`}>Go back</Link>
                     {/* product card full component - update cart && product props */}
                     <ProductCardFull product={product!} addToCart={addToCart} />

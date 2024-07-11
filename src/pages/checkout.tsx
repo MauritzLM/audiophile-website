@@ -12,7 +12,6 @@ interface checkoutProps {
 
 function Checkout({ cart, clearCart }: checkoutProps) {
     const [paymentSuccess, setPaymentSuccess] = useState(false);
-    // implement go back*
 
     const handlePayment = function () {
         setPaymentSuccess(true)
