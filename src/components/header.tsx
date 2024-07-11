@@ -43,7 +43,7 @@ function Header({ handleViewCart, cart }: headerProps) {
 
                {/* cart notification  and display button */}
                <div className="cart-button">
-                  <div className={cart.length ? "notification" : "hidden"}>{cart?.length}</div>
+                  <div className={cart?.length ? "notification" : "hidden"}>{cart?.length}</div>
                   <button data-testid="view-cart" aria-label="cart" onClick={handleViewCart}><img src="/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
                </div>
             </nav>

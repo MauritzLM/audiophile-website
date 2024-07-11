@@ -22,7 +22,7 @@ describe("cart component", () => {
         expect(screen.getAllByRole("listitem")).toHaveLength(2);
 
         // correct total given props
-        expect(screen.getByTestId("price").textContent).toMatch("$ 9999");
+        expect(screen.getByTestId("price").textContent).toMatch("$ 9,999");
     });
 
     it("rendering empty cart", () => {

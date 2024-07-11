@@ -17,7 +17,7 @@ describe("product card full", () => {
         // does not render if not new
         expect(screen.queryByTestId("new")).not.toBeInTheDocument();
         // renders correct price
-        expect(screen.getByTestId("price").textContent).toMatch("$ 3500");
+        expect(screen.getByTestId("price").textContent).toMatch("$ 3,500");
     });
 
     it("renders new product correctly", () => {

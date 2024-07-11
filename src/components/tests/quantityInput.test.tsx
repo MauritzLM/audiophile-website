@@ -35,8 +35,8 @@ describe("quantity input", () => {
         await user.type(numInput, '2');
         await user.click(cartButton);
 
-        // num input value
-        expect(numInput).toHaveValue(2);
+        // num input value - reset after clicking button
+        expect(numInput).toHaveValue(1);
         // update cart function arguments
         expect(addToCart).toHaveBeenCalledWith(test_item, 2);
     });
