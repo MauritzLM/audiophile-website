@@ -477,6 +477,13 @@ picture {
     }
 }
 
+/* larger screens */ 
+@media screen and (min-width: 1550px) {
+    #about {
+        width: 1200px;
+    }
+}
+
 /* FOOTER */
 footer {
     background-color: black;

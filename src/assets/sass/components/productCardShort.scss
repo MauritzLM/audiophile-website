@@ -107,3 +107,10 @@
         }
     }
 }
+
+/* larger screens */ 
+@media screen and (min-width: 1550px) {
+    .product-card-short {
+        width: 1200px;
+    }
+}

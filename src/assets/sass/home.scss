@@ -127,6 +127,12 @@
     }
 }
 
+/* larger screens */ 
+@media screen and (min-width: 1550px) {
+    .home-content-wrapper {
+       align-items: center;
+    }
+}
 
 
 /* FEATURED SECTION */
@@ -388,5 +394,12 @@
                 }
             }
         }
+    }
+}
+
+/* larger screens */ 
+@media screen and (min-width: 1550px) {
+    .home-featured {
+        width: 1200px;
     }
 }

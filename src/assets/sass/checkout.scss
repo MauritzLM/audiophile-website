@@ -8,7 +8,7 @@
     padding: 65px 24px 97px 24px;
 
     .go-back {
-        top: 16px;
+        top: 20px;
     }
 }
 
@@ -18,7 +18,7 @@
         padding: 97px 40px 116px 40px;
 
         .go-back {
-            top: 48px;
+            top: 40px;
         }
     }
 }
@@ -27,6 +27,10 @@
 @media screen and (min-width: 1200px) {
     .checkout-wrapper {
         padding: 142px 165px;
+
+        .go-back {
+            top: 70px;
+        }
     }
 }
 
@@ -434,6 +438,14 @@
 }
 
 
+/* larger screens */
+@media screen and (min-width: 1550px) {
+    #checkout-form {
+        width: 1200px;
+        margin: auto;
+    }
+}
+
 /* PAYMENT SUCCESS */
 .payment-success-wrapper {
     z-index: 10;
@@ -564,6 +576,8 @@
 /* tablet */
 @media screen and (min-width: 700px) {
     .payment-success-wrapper {
+        padding-top: 132px;
+
         .payment-success {
             padding: 48px;
 
@@ -595,12 +609,19 @@
                     padding-bottom: 41px;
                 }
 
-            
+
             }
 
             .cs-button {
                 margin-top: 46px;
             }
         }
+    }
+}
+
+/* desktop */
+@media screen and (min-width: 1200px) {
+    .payment-success-wrapper {
+        padding-top: 125px;
     }
 }

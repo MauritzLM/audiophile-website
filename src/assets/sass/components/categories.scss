@@ -74,3 +74,10 @@
         gap: 30px;
     }
 }
+
+/* larger screens */ 
+@media screen and (min-width: 1550px) {
+    .categories {
+        width: 1200px;
+    }
+}

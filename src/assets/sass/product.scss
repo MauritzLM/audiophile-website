@@ -25,9 +25,14 @@
     }
 }
 
+/* desktop */
 @media screen and (min-width: 1000px) {
     .product-wrapper {
         gap: 160px;
+
+        .go-back {
+           top: -65px;
+        }
     }
 }
 
