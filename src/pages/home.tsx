@@ -22,7 +22,7 @@ function Home({ featured }: homeProps) {
             {/* hero section - main featured product */}
             <section id="hero">
                 <picture>
-                    <source media="(max-width: 700px)" srcSet={"/images/home/mobile/image-header.jpg"} />
+                    <source media="(max-width: 600px)" srcSet={"/images/home/mobile/image-header.jpg"} />
                     <source media="(max-width: 1199px)" srcSet={"/images/home/tablet/image-header.jpg"} />
                     <source media="(min-width: 1200px)" srcSet={"/images/home/desktop/image-hero.jpg"} />
                     <img src={"/images/home/desktop/image-hero.jpg"} alt="" aria-hidden="true" decoding="async" width="" height="" loading="eager" />
@@ -31,7 +31,7 @@ function Home({ featured }: homeProps) {
                 <div className="cs-text">
                     <p className="new">new product</p>
 
-                    <h1>XX99 Mark II HeadphoneS</h1>
+                    <h1>XX99 Mark II <br/> HeadphoneS</h1>
 
                     <p>Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
 
