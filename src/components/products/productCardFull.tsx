@@ -35,7 +35,7 @@ function ProductCardFull({ product, addToCart }: productCardFullProps) {
                     <p className="description">{product?.description}</p>
 
                     {/* price */}
-                    <p className="price" data-testid="price">$ {product?.price}</p>
+                    <p className="price" data-testid="price">$ {new Intl.NumberFormat().format(product?.price)}</p>
 
                     {/* add to cart button && quantity input component */}
                     <QuantityInput product={product} addToCart={addToCart} />

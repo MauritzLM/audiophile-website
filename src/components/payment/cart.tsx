@@ -62,7 +62,7 @@ function Cart({ cart, updateCart, clearCart, viewCart, handleViewCart }: cartPro
                   <div>
                     <img src={`/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                     <h4>{nameArr.join(" ")}</h4>
-                    <p>$ {item.price}</p>
+                    <p>$ {new Intl.NumberFormat().format(item.price)}</p>
                   </div>
 
                   <CartQuantityInput product={item} cart={cart} updateCart={updateCart} />
@@ -73,7 +73,7 @@ function Cart({ cart, updateCart, clearCart, viewCart, handleViewCart }: cartPro
           </ul>
 
           {/* display total */}
-          <div className="cart-total"><span>total</span><span data-testid="price">$ {cartSorted.reduce((accumulator, item) => accumulator + item.price, 0)}</span></div>
+          <div className="cart-total"><span>total</span><span data-testid="price">$ {new Intl.NumberFormat().format(cartSorted.reduce((accumulator, item) => accumulator + item.price, 0))}</span></div>
 
           {/* checkout link */}
           <Link onClick={handleViewCart} className="cs-button" to="/checkout">Checkout</Link>

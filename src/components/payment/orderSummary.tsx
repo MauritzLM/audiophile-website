@@ -45,7 +45,7 @@ function OrderSummary({ cart }: orderSummaryProps) {
                             <div>
                                 <img src={`/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                                 <h4>{nameArr.join(" ")}</h4>
-                                <p>$ {item.price}</p>
+                                <p>$ {new Intl.NumberFormat().format(item.price)}</p>
                             </div>
 
                             <span data-testid="quantity">x{quantity}</span>
@@ -55,15 +55,15 @@ function OrderSummary({ cart }: orderSummaryProps) {
             </ul>
             <div className="amount-calculations">
                 {/* total */}
-                <div><span>Total</span> <span>$ {total}</span></div>
+                <div><span>Total</span> <span>$ {new Intl.NumberFormat().format(total)}</span></div>
                 {/* shipping */}
                 <div><span>Shipping</span> <span>$ 50</span></div>
                 {/* vat * .2 */}
-                <div><span>VAT (included)</span> <span>$ {Math.round(total * 0.2)}</span></div>
+                <div><span>VAT (included)</span> <span>$ {new Intl.NumberFormat().format(Math.round(total * 0.2))}</span></div>
             </div>
             <div className="grand-total">
                 {/* grand total */}
-                <div><span>Grand Total</span> <span>$ {total + 50}</span></div>
+                <div><span>Grand Total</span> <span>$ {new Intl.NumberFormat().format(total + 50)}</span></div>
             </div>
 
         </>

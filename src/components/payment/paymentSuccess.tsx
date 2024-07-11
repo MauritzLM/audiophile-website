@@ -68,7 +68,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                       <div>
                         <img src={`/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                         <h4>{nameArr.join(" ")}</h4>
-                        <p>$ {item.price}</p>
+                        <p>$ {new Intl.NumberFormat().format(item.price)}</p>
                       </div>
 
                       <span>x{quantity}</span>
@@ -81,7 +81,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
                     <div>
                       <img src={`/images/cart/image-${item.slug}.jpg`} alt="" height="64px" width="64px" loading="lazy" decoding="async" aria-hidden="true" />
                       <h4>{nameArr.join(" ")}</h4>
-                      <p>$ {item.price}</p>
+                      <p>$ {new Intl.NumberFormat().format(item.price)}</p>
                     </div>
 
                     <span>x{quantity}</span>
@@ -97,7 +97,7 @@ function PaymentSuccess({ cart, clearCart }: paymentSuccessProps) {
             </ul>
             <div className={expandedView ? "grand-total expanded" : "grand-total"}>
               <span>Grand total</span>
-              <p>$ {total + 50}</p>
+              <p>$ {new Intl.NumberFormat().format(total + 50)}</p>
             </div>
           </div>
 
