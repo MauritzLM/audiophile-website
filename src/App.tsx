@@ -108,7 +108,7 @@ function App() {
 
   return (
     <>
-      <Header handleViewCart={handleViewCart} />
+      <Header handleViewCart={handleViewCart} cart={cart} />
       <main id='main'>
         <Cart cart={cart} updateCart={updateCart} clearCart={clearCart} viewCart={viewCart} handleViewCart={handleViewCart} />
         <Routes>
