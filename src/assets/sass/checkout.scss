@@ -222,7 +222,6 @@
             li {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
 
                 div {
                     display: grid;
@@ -448,15 +447,14 @@
 
 /* PAYMENT SUCCESS */
 .payment-success-wrapper {
-    z-index: 10;
+    z-index: 99999;
     position: fixed;
-    // height of nav
-    top: 90px;
+    top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.418);
-    padding-top: 24px;
+    padding-top: 114px;
     display: flex;
     justify-content: center;
 
@@ -492,7 +490,6 @@
             li {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
 
                 div {
                     display: grid;
@@ -576,7 +573,7 @@
 /* tablet */
 @media screen and (min-width: 700px) {
     .payment-success-wrapper {
-        padding-top: 132px;
+        padding-top: 100px;
 
         .payment-success {
             padding: 48px;
@@ -622,6 +619,6 @@
 /* desktop */
 @media screen and (min-width: 1200px) {
     .payment-success-wrapper {
-        padding-top: 125px;
+        padding-top: 100px;
     }
 }
