@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom"
 import Categories from "./products/categories"
 import { useState } from "react"
+import { item } from "../types"
 
 interface headerProps {
-   handleViewCart: () => void
+   handleViewCart: () => void,
+   cart: item[]
 }
 
-function Header({ handleViewCart }: headerProps) {
+function Header({ handleViewCart, cart }: headerProps) {
    const [showNav, setShowNav] = useState(false)
    return (
       <>
@@ -25,7 +27,7 @@ function Header({ handleViewCart }: headerProps) {
                <Link to="/">
                   <img src="/svgs/logo.svg" alt="logo" width="143px" height="25px" decoding="async" loading="eager" />
                </Link>
-               
+
                {/* categories component for mobile nav */}
                <div onClick={() => setShowNav(false)} className="nav-links-wrapper">
                   <Categories />
@@ -39,8 +41,12 @@ function Header({ handleViewCart }: headerProps) {
                   </ul>
                </div>
 
-               {/* cart display button* */}
-               <button className="cart-button" data-testid="view-cart" aria-label="cart" onClick={handleViewCart}><img src="/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
+               {/* cart notification */}
+               <div className="cart-button">
+                  <div className={cart.length ? "notification" : "hidden"}>{cart?.length}</div>
+                  {/* cart display button */}
+                  <button data-testid="view-cart" aria-label="cart" onClick={handleViewCart}><img src="/svgs/icon-cart.svg" alt="cart" aria-hidden="true" decoding="async" loading="lazy" /></button>
+               </div>
             </nav>
          </header>
       </>
