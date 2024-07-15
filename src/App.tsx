@@ -86,8 +86,6 @@ function App() {
 
       setFeatured([...message])
 
-      console.log(message)
-
     } catch (error) {
       console.log(error)
     }
