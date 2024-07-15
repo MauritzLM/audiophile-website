@@ -72,10 +72,31 @@
 @media screen and (min-width: 1200px) {
     .categories {
         gap: 30px;
+
+        .category {
+            height: 204px;
+            padding-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+
+            .category-image {
+                height: 200px;
+                top: -80px;
+
+                &:nth-of-type(3) {
+                    top: -65px;
+                }
+            }
+
+            p {
+                font-size: 18px;
+            }
+        }
     }
 }
 
-/* larger screens */ 
+/* larger screens */
 @media screen and (min-width: 1550px) {
     .categories {
         width: 1200px;
